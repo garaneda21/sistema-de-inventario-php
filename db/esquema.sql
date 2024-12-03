@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS inventario_abmodel;
-USE DATABASE inventario_abmodel;
+CREATE DATABASE IF NOT EXISTS inventario_carolina;
+USE inventario_carolina;
 
 CREATE TABLE unidad_de_medida (
 	id_unidad INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -14,9 +14,9 @@ CREATE TABLE categoria (
 );
 
 CREATE TABLE producto (
-    id_producto INT UNSIGNED NOT NULL AUTO_INCREMENT
+    id_producto INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nombre_producto VARCHAR(200) NOT NULL,
-    total_vendidos BIGING UNSIGNED DEFAULT 0, -- comprobar
+    total_vendidos BIGINT UNSIGNED DEFAULT 0, -- comprobar
     stock_actual DECIMAL(10,2) NOT NULL DEFAULT 0, -- comprobar
     stock_minimo INT UNSIGNED NOT NULL,
     codigo_de_barra INT UNSIGNED,
@@ -29,7 +29,7 @@ CREATE TABLE producto (
 CREATE TABLE precio (
     id_precio INT UNSIGNED NOT NULL AUTO_INCREMENT,
     precio INT UNSIGNED NOT NULL,
-    fecha_inicio_precio DATETIME NOT NULL DEFAULT CURRENT_TIME,
+    fecha_inicio_precio DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     fecha_fin_precio DATETIME,
     id_producto INT UNSIGNED NOT NULL,
     PRIMARY KEY (id_precio)
@@ -45,7 +45,7 @@ CREATE TABLE entrada_producto(
 
 CREATE TABLE entrada (
     id_entrada INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    fecha_entrada DATETIME NOT NULL DEFAULT CURRENT_TIME,
+    fecha_entrada DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_entrada)
 );
 
@@ -58,7 +58,7 @@ CREATE TABLE salida_producto(
 
 CREATE TABLE salida (
     id_salida INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    fecha_salida DATETIME NOT NULL DEFAULT CURRENT_TIME,
+    fecha_salida DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     id_motivo INT UNSIGNED NOT NULL,
     PRIMARY KEY (id_salida)
 );
