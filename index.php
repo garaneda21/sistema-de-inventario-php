@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/prueba_ctrl.php'
+
 ?>
 
 <!DOCTYPE html>
@@ -45,17 +45,6 @@ require_once 'includes/prueba_ctrl.php'
             <h2>Bienvenido</h2>
             <!-- Texto de prueba para probar el scroll -->
 
-            <?php
-            require_once 'includes/db.php';
-
-            $datos = obtener_unidad_de_medida($pdo);
-
-            $pdo = null;
-            $stmt = null;
-
-            print_r($datos);
-            ?>
-
             <h1>Productos</h1>
             <!-- Botón Añadir Producto -->
             <a href="#" class="add-product-btn">Añadir Producto</a>
@@ -64,50 +53,34 @@ require_once 'includes/prueba_ctrl.php'
             <table class="products-table">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Nombre</th>
+                        <th>Total Vendidos</th>
+                        <th>Stock Actual</th>
+                        <th>Stock Mínimo</th>
+                        <th>Código de Barra</th>
+                        <th>Tiempo para Alerta <br> de Vencimiento</th>
                         <th>Categoría</th>
-                        <th>Precio</th>
-                        <th>Descripción</th>
+                        <th>Unidad de Medida</th>
+                        <th>Editar Entrada</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Fila de ejemplo -->
                     <tr>
-                        <td>1</td>
-                        <td>Producto A</td>
-                        <td>Electrónica</td>
-                        <td>$100.00</td>
-                        <td>Un excelente producto.</td>
+                        <td>Manzana</td>
+                        <td>100 [kilos]</td>
+                        <td>20,50 [kilos]</td>
+                        <td>10 [kilos]</td>
+                        <td>12093910273812</td>
+                        <td>7 dias</td>
+                        <td>Frutas y Verduras</td>
+                        <td>Kilo</td>
+                        <td> <button>Lapiz</button> </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Producto B</td>
-                        <td>Hogar</td>
-                        <td>$50.00</td>
-                        <td>Muy útil para la casa.</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Producto C</td>
-                        <td>Deporte</td>
-                        <td>$30.00</td>
-                        <td>Ideal para actividad física.</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Producto C</td>
-                        <td>Deporte</td>
-                        <td>$30.00</td>
-                        <td>Ideal para actividad física.</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Producto C</td>
-                        <td>Deporte</td>
-                        <td>$30.00</td>
-                        <td>Ideal para actividad física.</td>
-                    </tr>
+
+                    <?php 
+                    
+                    ?>
                 </tbody>
             </table>
 

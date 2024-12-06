@@ -19,7 +19,7 @@ CREATE TABLE producto (
     total_vendidos BIGINT UNSIGNED DEFAULT 0, -- comprobar
     stock_actual DECIMAL(10,2) NOT NULL DEFAULT 0, -- comprobar
     stock_minimo INT UNSIGNED NOT NULL,
-    codigo_de_barra INT UNSIGNED,
+    codigo_de_barra BIGINT UNSIGNED,
     tiempo_alerta_vencimiento INT UNSIGNED,
     id_categoria INT UNSIGNED NOT NULL,
     id_unidad INT UNSIGNED NOT NULL,
