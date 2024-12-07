@@ -1,4 +1,6 @@
-
+<?php
+require_once "includes/vista_productos/tabla_productos.php"
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +11,8 @@
     <title>Sistema de Inventario</title>
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/tablas.css">
+    <link rel="stylesheet" href="styles/modal.css">
+    <link rel="stylesheet" href="styles/formulario.css">
 </head>
 
 <body>
@@ -40,57 +44,71 @@
 
         <!-- Área de contenido principal -->
         <main class="content">
-            <h2>Bienvenido</h2>
-            <!-- Texto de prueba para probar el scroll -->
-
             <h1>Productos</h1>
             <!-- Botón Añadir Producto -->
             <a href="#" class="add-product-btn">Añadir Producto</a>
 
             <!-- Tabla de productos -->
-            <table class="products-table">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Total Vendidos</th>
-                        <th>Stock Actual</th>
-                        <th>Stock Mínimo</th>
-                        <th>Código de Barra</th>
-                        <th>Tiempo para Alerta <br> de Vencimiento</th>
-                        <th>Categoría</th>
-                        <th>Unidad de Medida</th>
-                        <th>Editar Entrada</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                    <?php 
-                    require_once "includes/db.php";
-                    require_once "includes/vista_productos/tabla_productos_modelo.php";
+            <?php
+            tabla_de_productos($productos);
+            ?>
 
-                    $productos = obtener_productos($pdo);
 
-                    foreach ($productos as $producto) {
+            <!-- Botón que abre el modal -->
+            <button class="open-modal-btn" id="openModalBtn">Abrir Modal</button>
+
+            <!-- Overlay oscuro -->
+            <div class="modal-overlay" id="modalOverlay">
+                <!-- Contenedor del modal -->
+                <div class="modal">
+                    <h2>Ingresar nuevo producto al inventario</h2>
+
+                    <form class="form-container">
+                        <label for="name">Nombre del producto</label>
+                        <input type="text" id="name" name="name" placeholder="Ingrese nombre del producto" required>
+
+                        <label for="name">Precio</label>
+                        <input type="number" id="name" name="name" placeholder="$ 1000" required>
+
+                        <label for="category">Categoría</label>
+                        <select id="category" name="category" required>
+                            <option value="">Seleccione una opción</option>
+                            <option value="opcion1">Opción 1</option>
+                            <option value="opcion2">Opción 2</option>
+                            <option value="opcion3">Opción 3</option>
+                        </select>
+
+                        <label for="category">Unidad de medida</label>
+                        <select id="category" name="category" required>
+                            <option value="">Seleccione una opción</option>
+                            <option value="opcion1">Opción 1</option>
+                            <option value="opcion2">Opción 2</option>
+                            <option value="opcion3">Opción 3</option>
+                        </select>
+
+                        <label for="name">Stock mínimo (para alerta de bajo stock)</label>
+                        <input type="number" id="name" name="name" placeholder="Stock mínimo" required>
+
+                        <label for="name">Código de barras</label>
+                        <input type="number" id="name" name="name" placeholder="Código de barras" required>
+
+                        <label for="name">Tiempo para activar alerta de vencimiento (días)</label>
+                        <input type="number" id="name" name="name" placeholder="días para activar alerta de vencimiento" required>
+
                         
-                        echo "<tr>";
-                        echo "    <td>" . $producto["nombre_producto"] . "</td>";
-                        echo "    <td>" . $producto["total_vendidos"] . "</td>";
-                        echo "    <td>" . $producto["stock_actual"] . "</td>";
-                        echo "    <td>" . $producto["stock_minimo"] . "</td>";
-                        echo "    <td>" . $producto["codigo_de_barra"] . "</td>";
-                        echo "    <td>" . $producto["tiempo_alerta_vencimiento"] . "</td>";
-                        echo "    <td>" . $producto["nombre_categoria"] . "</td>";
-                        echo "    <td>" . $producto["nombre_unidad"] . "</td>";
-                        echo "    <td> <button>Lapiz</button> </td>";
-                        echo "</tr>";
-                    }         
+                        <button type="submit">Enviar</button>
+                    </form>
 
-                    ?>
-                </tbody>
-            </table>
 
+                    <!-- Botones del modal -->
+                    <button class="accept-btn" id="acceptBtn">Aceptar</button>
+                    <button class="cancel-btn" id="closeModalBtn">Cancelar</button>
+                </div>
+            </div>
         </main>
     </div>
+
+    <script src="js/modal.js"></script>
 </body>
 
 </html>
