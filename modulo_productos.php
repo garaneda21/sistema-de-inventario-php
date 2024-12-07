@@ -1,5 +1,5 @@
 <?php
-require_once "includes/vista_productos/tabla_productos.php"
+require_once "includes/modulo_productos/tabla_productos.php";
 ?>
 
 <!DOCTYPE html>
@@ -45,17 +45,14 @@ require_once "includes/vista_productos/tabla_productos.php"
         <!-- Área de contenido principal -->
         <main class="content">
             <h1>Productos</h1>
+
             <!-- Botón Añadir Producto -->
-            <a href="#" class="add-product-btn">Añadir Producto</a>
+            <button class="open-modal-btn" id="openModalBtn">Abrir Modal</button>
 
             <!-- Tabla de productos -->
             <?php
             tabla_de_productos($productos);
             ?>
-
-
-            <!-- Botón que abre el modal -->
-            <button class="open-modal-btn" id="openModalBtn">Abrir Modal</button>
 
             <!-- Overlay oscuro -->
             <div class="modal-overlay" id="modalOverlay">
@@ -63,37 +60,39 @@ require_once "includes/vista_productos/tabla_productos.php"
                 <div class="modal">
                     <h2>Ingresar nuevo producto al inventario</h2>
 
-                    <form class="form-container">
-                        <label for="name">Nombre del producto</label>
-                        <input type="text" id="name" name="name" placeholder="Ingrese nombre del producto" required>
+                    <form class="form-container" action="includes/vista_productos/ingresar_producto.php" method="post">
+                        <label>Nombre del producto</label>
+                        <input type="text" name="nombre_producto" placeholder="Ingrese nombre del producto" required>
 
-                        <label for="name">Precio</label>
-                        <input type="number" id="name" name="name" placeholder="$ 1000" required>
+                        <label>Precio</label>
+                        <input type="number" name="precio" placeholder="$ 1000" required>
 
-                        <label for="category">Categoría</label>
-                        <select id="category" name="category" required>
+
+
+                        <label>Categoría</label>
+                        <select name="categoria" required>
                             <option value="">Seleccione una opción</option>
                             <option value="opcion1">Opción 1</option>
                             <option value="opcion2">Opción 2</option>
                             <option value="opcion3">Opción 3</option>
                         </select>
 
-                        <label for="category">Unidad de medida</label>
-                        <select id="category" name="category" required>
+                        <label>Unidad de medida</label>
+                        <select name="unidad_de_medida" required>
                             <option value="">Seleccione una opción</option>
-                            <option value="opcion1">Opción 1</option>
-                            <option value="opcion2">Opción 2</option>
-                            <option value="opcion3">Opción 3</option>
+                            <option value="1">Opción 1</option>
+                            <option value="2">Opción 2</option>
+                            <option value="3">Opción 3</option>
                         </select>
 
-                        <label for="name">Stock mínimo (para alerta de bajo stock)</label>
-                        <input type="number" id="name" name="name" placeholder="Stock mínimo" required>
+                        <label>Stock mínimo (para alerta de bajo stock)</label>
+                        <input type="number" name="stock_minimo" placeholder="Stock mínimo" required>
 
-                        <label for="name">Código de barras</label>
-                        <input type="number" id="name" name="name" placeholder="Código de barras" required>
+                        <label>Código de barras</label>
+                        <input type="number" name="codigo_de_barra" placeholder="Código de barras" required>
 
-                        <label for="name">Tiempo para activar alerta de vencimiento (días)</label>
-                        <input type="number" id="name" name="name" placeholder="días para activar alerta de vencimiento" required>
+                        <label>Tiempo para activar alerta de vencimiento (días)</label>
+                        <input type="number" name="tiempo_alerta_vencimiento" placeholder="días para activar alerta de vencimiento" required>
 
                         
                         <button type="submit">Enviar</button>
@@ -101,9 +100,9 @@ require_once "includes/vista_productos/tabla_productos.php"
 
 
                     <!-- Botones del modal -->
-                    <button class="accept-btn" id="acceptBtn">Aceptar</button>
                     <button class="cancel-btn" id="closeModalBtn">Cancelar</button>
                 </div>
+
             </div>
         </main>
     </div>
