@@ -1,7 +1,7 @@
 <?php
 // Conexión a Base de Datos
 
-$host = '127.0.0.1';
+$host = '127.0.0.1'; // se puede cambiar por localhost
 $dbname = 'inventario_carolina';
 $dbusername = 'root';
 $dbpassword = '1234';

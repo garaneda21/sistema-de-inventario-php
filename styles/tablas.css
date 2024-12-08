@@ -1,0 +1,34 @@
+/* Tabla de productos */
+.products-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.products-table th,
+.products-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #dee2e6;
+}
+
+.products-table th {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+}
+
+.products-table td {
+    font-size: 14px;
+}
+
+/* Estilo alternado de filas */
+.products-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.products-table tr:hover {
+    background-color: #e9ecef;
+}

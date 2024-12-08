@@ -1,16 +1,14 @@
-<?php
-require_once 'includes/prueba_ctrl.php'
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Inventario</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/layout.css">
-    <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
     <!-- Navbar superior -->
     <header class="navbar">
@@ -32,7 +30,9 @@ require_once 'includes/prueba_ctrl.php'
             <div class="separator"></div>
 
             <!-- Botones estándar -->
-            <button class="small-button">Botón 1</button>
+            <a href="modulo_productos.php">
+                <button class="small-button">Botón 1</button>
+            </a>
             <button class="small-button">Botón 2</button>
             <button class="small-button">Botón 3</button>
             <button class="small-button">Botón 4</button>
@@ -43,17 +43,9 @@ require_once 'includes/prueba_ctrl.php'
             <h2>Bienvenido</h2>
             <!-- Texto de prueba para probar el scroll -->
 
-            <?php
-                require_once 'includes/db.php';
-
-                $datos = obtener_unidad_de_medida($pdo);
-
-                $pdo = null;
-                $stmt = null;
-                
-                print_r($datos);
-            ?>
+            
         </main>
     </div>
 </body>
+
 </html>

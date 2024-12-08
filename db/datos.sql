@@ -11,3 +11,5 @@ INSERT INTO motivo_salida (nombre_motivo) VALUES
 ('Venta'),
 ('Vencido'),
 ('Daño');
+
+-- Datos de Prueba
