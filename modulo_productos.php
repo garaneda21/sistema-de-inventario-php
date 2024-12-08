@@ -10,7 +10,7 @@ require_once "includes/modulo_productos/modal_productos.php"
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Inventario</title>
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/tablas.css">
     <link rel="stylesheet" href="styles/modal.css">
@@ -62,7 +62,7 @@ require_once "includes/modulo_productos/modal_productos.php"
                 <div class="modal">
                     <h2>Ingresar nuevo producto al inventario</h2>
 
-                    <form class="form-container" action="includes/vista_productos/ingresar_producto.php" method="post">
+                    <form class="form-container" action="includes/modulo_productos/ingresar_producto.php" method="post">
                         <label>Nombre del producto</label>
                         <input type="text" name="nombre_producto" placeholder="Ingrese nombre del producto" required>
 
@@ -91,10 +91,10 @@ require_once "includes/modulo_productos/modal_productos.php"
                         <input type="number" name="stock_minimo" placeholder="Stock mínimo" required>
 
                         <label>Código de barras</label>
-                        <input type="number" name="codigo_de_barra" placeholder="Código de barras" required>
+                        <input type="number" name="codigo_de_barra" placeholder="Código de barras">
 
                         <label>Tiempo para activar alerta de vencimiento (días)</label>
-                        <input type="number" name="tiempo_alerta_vencimiento" placeholder="días para activar alerta de vencimiento" required>
+                        <input type="number" name="tiempo_alerta_vencimiento" placeholder="días para activar alerta de vencimiento">
 
                         
                         <button type="submit">Enviar</button>

@@ -20,10 +20,10 @@ function obtener_productos(object $pdo) {
         LEFT JOIN unidad_de_medida u ON p.id_unidad = u.id_unidad
         LEFT JOIN precio pr ON p.id_producto = pr.id_producto;
     ";
-    $instruccion = $pdo->prepare($consulta);
-    $instruccion->execute();
+    $stmt = $pdo->prepare($consulta);
+    $stmt->execute();
 
     // obtener resultado de la base de datos como un array asociativo (php)
-    $resul = $instruccion->fetchAll(PDO::FETCH_ASSOC);
+    $resul = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $resul;
 }
