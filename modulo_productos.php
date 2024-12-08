@@ -1,5 +1,6 @@
 <?php
 require_once "includes/modulo_productos/tabla_productos.php";
+require_once "includes/modulo_productos/modal_productos.php"
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +10,7 @@ require_once "includes/modulo_productos/tabla_productos.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Inventario</title>
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/tablas.css">
     <link rel="stylesheet" href="styles/modal.css">
@@ -72,17 +74,17 @@ require_once "includes/modulo_productos/tabla_productos.php";
                         <label>Categoría</label>
                         <select name="categoria" required>
                             <option value="">Seleccione una opción</option>
-                            <option value="opcion1">Opción 1</option>
-                            <option value="opcion2">Opción 2</option>
-                            <option value="opcion3">Opción 3</option>
+                            <?php 
+                            datos_categorias($categorias);
+                            ?>
                         </select>
 
                         <label>Unidad de medida</label>
                         <select name="unidad_de_medida" required>
                             <option value="">Seleccione una opción</option>
-                            <option value="1">Opción 1</option>
-                            <option value="2">Opción 2</option>
-                            <option value="3">Opción 3</option>
+                            <?php 
+                            datos_unidad($unidades_de_medida);
+                            ?>
                         </select>
 
                         <label>Stock mínimo (para alerta de bajo stock)</label>
