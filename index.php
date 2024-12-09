@@ -18,32 +18,14 @@
     <!-- Contenedor principal -->
     <div class="main-container">
         <!-- Panel lateral -->
-        <aside>
-            <!-- Logo -->
-            <img src="https://via.placeholder.com/200x100" alt="Logo" class="logo">
-
-            <!-- Botones principales -->
-            <button>Ventas</button>
-            <button>Entradas</button>
-
-            <!-- Línea separadora -->
-            <div class="separator"></div>
-
-            <!-- Botones estándar -->
-            <a href="modulo_productos.php">
-                <button class="small-button">Botón 1</button>
-            </a>
-            <button class="small-button">Botón 2</button>
-            <button class="small-button">Botón 3</button>
-            <button class="small-button">Botón 4</button>
-        </aside>
+        <?php require_once "barra_lateral.php" ?>
 
         <!-- Área de contenido principal -->
         <main class="content">
             <h2>Bienvenido</h2>
             <!-- Texto de prueba para probar el scroll -->
 
-            
+
         </main>
     </div>
 </body>

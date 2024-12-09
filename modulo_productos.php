@@ -26,23 +26,7 @@ require_once "includes/modulo_productos/modal_productos.php"
     <!-- Contenedor principal -->
     <div class="main-container">
         <!-- Panel lateral -->
-        <aside>
-            <!-- Logo -->
-            <img src="https://via.placeholder.com/200x100" alt="Logo" class="logo">
-
-            <!-- Botones principales -->
-            <button>Ventas</button>
-            <button>Entradas</button>
-
-            <!-- Línea separadora -->
-            <div class="separator"></div>
-
-            <!-- Botones estándar -->
-            <button class="small-button">Botón 1</button>
-            <button class="small-button">Botón 2</button>
-            <button class="small-button">Botón 3</button>
-            <button class="small-button">Botón 4</button>
-        </aside>
+        <?php require_once "barra_lateral.php" ?>
 
         <!-- Área de contenido principal -->
         <main class="content">
