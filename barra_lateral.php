@@ -2,7 +2,7 @@
     <!-- Logo -->
     <img src="https://via.placeholder.com/200x100" alt="Logo" class="logo">
 
-    <a href="index.html" class="sidebar-btn">Pantalla Principal</a>
+    <a href="index.php" class="sidebar-btn">Pantalla Principal</a>
 
     <div class="separator"></div>
 

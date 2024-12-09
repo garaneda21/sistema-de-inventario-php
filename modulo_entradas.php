@@ -1,3 +1,7 @@
+<?php
+require_once "includes/modulo_entradas/lista_productos.php"
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +13,7 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/cuadricula_de_productos.css">
     <link rel="stylesheet" href="styles/barra_lateral_de_productos.css">
-    <link rel="stylesheet" href="styles/tablas.css">
+    <link rel="stylesheet" href="styles/tablas_ingreso_producto.css">
 </head>
 
 <body>
@@ -27,54 +31,51 @@
         <main class="content">
 
             <div class="product-grid">
-                <!-- Producto 1 -->
-                <div class="product-item" onclick="agregar_a_tabla(0, 'coca cola', 1100);">
-                    <div class="product-name">Delicioso Mezcla Gourmet para Toda Ocasión</div>
-                    <div class="product-price">$10.00</div>
-                    <span class="stock">Stock: 25 unidades</span>
-                    <span class="category">Herramientas</span>
-                </div>
 
-                <div class="product-item" onclick="agregar_a_tabla(0, 'pan', 1100);">
-                    <div class="product-name">Delicioso Mezcla Gourmet para Toda Ocasión</div>
-                    <div class="product-price">$10.00</div>
-                    <span class="stock">Stock: 25 unidades</span>
-                    <span class="category">Herramientas</span>
-                </div>
+                <?php
+                insertar_productos($productos);
+                ?>
 
-                <div class="product-item" onclick="agregar_a_tabla(0, 'zanahoria', 1100);">
-                    <div class="product-name">Delicioso Mezcla Gourmet para Toda Ocasión</div>
-                    <div class="product-price">$10.00</div>
-                    <span class="stock">Stock: 25 unidades</span>
-                    <span class="category">Herramientas</span>
-                </div>
             </div>
 
         </main>
 
         <div class="sidebar-productos">
-            <table class="products-table">
-                <thead>
-                    <tr>
-                        <th>Producto</th>
-                        <th>Cantidad</th>
-                        <th>Precio</th>
-                        <th>Quitar</th>
-                    </tr>
-                </thead>
-                <tbody id="tabla-productos">
-                    <tr>
-                        <td>hola</td>
-                        <td>hola</td>
-                        <td>hola</td>
-                        <td>❌</td>
-                    </tr>
-                </tbody>
-            </table>
+
+            <form action="includes/modulo_entradas/entrada.php" method="post">
+
+                <table class="table-adjusted">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad en el Lote</th>
+                            <th>Unidad del Producto</th>
+                            <th>Fecha de Vencimiento del lote</th>
+                            <th>Quitar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-productos">
+                        <tr>
+                            <td>hola</td>
+                            <td>
+                                <input class="table-input" type="number">
+                            </td>
+                            <td>KILOS</td>
+                            <td>
+                                <input type="date" class="table-input" id="dateInput">
+                            </td>
+                            <td>❌</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="form-footer">
+                    <button type="submit" class="button-submit">Ingresar Productos al Inventario</button>
+                </div>
+            </form>
         </div>
     </div>
 
-    <script src="js/añadir_producto.js"></script>
+    <script src="js/añadir_a_tabla_ingreso.js"></script>
 </body>
 
 </html>
