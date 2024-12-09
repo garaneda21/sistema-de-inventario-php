@@ -7,7 +7,7 @@
     <div class="separator"></div>
 
     <!-- Botones grandes -->
-    <a href="modulo_ventas.html" class="sidebar-btn sidebar-btn-large sales">Ventas</a>
+    <a href="modulo_ventas.php" class="sidebar-btn sidebar-btn-large sales">Ventas</a>
     <a href="modulo_entradas.php" class="sidebar-btn sidebar-btn-large entries">Entradas</a>
 
     <div class="separator"></div>
