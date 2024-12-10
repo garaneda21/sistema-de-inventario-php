@@ -3,17 +3,16 @@ form {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-height: 100vh;
 }
 
 /* Tabla ajustada */
 .table-adjusted {
-  width: 100%;
+  width: auto;
   border-collapse: collapse;
-  font-family: 'Arial', sans-serif;
-  background-color: #ffffff;
-  /* Fondo blanco para contraste */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  /* Sombreado detrás de la tabla */
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
 }
 
 .table-adjusted th,
@@ -21,15 +20,13 @@ form {
   padding: 10px 15px;
   text-align: left;
   border: 1px solid #dee2e6;
-  /* Bordes de celda */
   font-size: 1rem;
+  height: 80px;
 }
 
 .table-adjusted th {
-  background-color: #343a40;
-  /* Fondo oscuro */
+  background-color: var(--oscuro);
   color: #ffffff;
-  /* Texto blanco */
   text-transform: uppercase;
   text-align: center;
 }
@@ -56,20 +53,13 @@ form {
   outline: none;
 }
 
-.dropdown-select {
-  padding: 5px;
-  font-size: 1rem;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
-}
-
 /* Botón de quitar fila */
 .button-remove-row {
   background-color: #dc3545;
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 6px 12px;
+  padding: 10px 20px;
   font-size: 0.9rem;
   cursor: pointer;
   transition: background-color 0.2s;
@@ -81,21 +71,40 @@ form {
 
 /* Botón de ingresar */
 .form-footer {
-  text-align: left;
-  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  padding: 20px 0px;
+  text-align: center;
 }
 
 .button-submit {
-  width: 100%;
-  background-color: #2980b9;
-  color: white;
+  display: flex;
+  align-items: center;
+  background-color: var(--azul);
+  color: black;
   border: none;
   border-radius: 5px;
-  padding: 20px 20px;
-  font-style: bold;
-  font-size: 1.5rem;
+  padding: 5px 15px;
   cursor: pointer;
   transition: background-color 0.2s;
+}
+
+.button-submit img {
+  width: 50px;
+}
+
+.button-submit p {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  margin: 15px;
 }
 
 .button-submit:hover {

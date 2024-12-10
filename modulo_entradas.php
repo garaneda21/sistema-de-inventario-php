@@ -49,24 +49,31 @@ require_once "includes/modulo_entradas/lista_productos.php"
                     <thead>
                         <tr>
                             <th>Producto</th>
-                            <th>Cantidad en el Lote</th>
-                            <th>Unidad del Producto</th>
-                            <th>Fecha de Vencimiento del lote</th>
+                            <th>Cantidad</th>
+                            <th>Unidad</th>
+                            <th>Fecha de Vencimiento</th>
                             <th>Quitar</th>
                         </tr>
                     </thead>
                     <tbody id="tabla-productos">
-                        
+
                     </tbody>
                 </table>
+
                 <div class="form-footer">
-                    <button type="submit" class="button-submit">Ingresar Productos al Inventario</button>
+                    <button type="submit" class="button-submit">
+                        <div class="icon icon-big">
+                            <img src="img/botones/completed.png" alt="">
+                        </div>
+                        <p>Ingresar productos al inventario</p>
+                    </button>
                 </div>
             </form>
+
         </div>
     </div>
 
-    <script src="js/añadir_a_tabla_ingreso.js"></script>
+    <script src="js/agregar_a_tabla_ingreso.js"></script>
 </body>
 
 </html>
