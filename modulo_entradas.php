@@ -73,7 +73,7 @@ require_once "includes/modulo_entradas/lista_productos.php"
         </div>
     </div>
 
-    <script src="js/añadir_a_tabla_ingreso.js"></script>
+    <script src="js/agregar_a_tabla_ingreso.js"></script>
 </body>
 
 </html>

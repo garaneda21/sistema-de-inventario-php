@@ -1,8 +1,15 @@
 function agregar_a_tabla(id, nombre, unidad) {
+
+    const comprobar_fila = document.getElementById(id);
+    if (comprobar_fila) {
+        return; // si existe el elemento, no ejecutar funcion.
+    }
+
     const tableBody = document.getElementById("tabla-productos");
 
     // Crear una fila para el producto
     const nueva_fila = document.createElement('tr');
+    nueva_fila.setAttribute('id', `${id}`);
 
     // Texto del nombre con input oculto con id del producto
     const celda_nombre = document.createElement('td');
@@ -19,12 +26,14 @@ function agregar_a_tabla(id, nombre, unidad) {
     const input_cantidad = document.createElement('input');
     input_cantidad.setAttribute('name', `productos[${id}][cantidad]`);
     input_cantidad.setAttribute('class', 'table-input');
-    input_cantidad.setAttribute('type', 'number');
-    input_cantidad.setAttribute('value', '1');
     if(unidad !== "Unidad") {
         input_cantidad.setAttribute('min', '0');
+        input_cantidad.setAttribute('type', 'text');
+        input_cantidad.setAttribute('value', '1');
     } else {
         input_cantidad.setAttribute('min', '1');
+        input_cantidad.setAttribute('type', 'number');
+        input_cantidad.setAttribute('value', '1');
     }
     input_cantidad.setAttribute('required', '');
     celda_cantidad.appendChild(input_cantidad);

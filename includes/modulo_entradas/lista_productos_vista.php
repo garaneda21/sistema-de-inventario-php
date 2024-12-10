@@ -15,6 +15,10 @@ function insertar_productos($productos) {
         ] = $producto;
 
         $nombre_producto = strtoupper($nombre_producto);
+
+        if($nombre_unidad === "Unidad") {
+            $stock_actual = (int) $stock_actual;
+        }
         
         echo "
             <div class=\"product-item\" onclick=\"agregar_a_tabla($id_producto, '$nombre_producto', '$nombre_unidad');\">
