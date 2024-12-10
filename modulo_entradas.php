@@ -9,7 +9,8 @@ require_once "includes/modulo_entradas/lista_productos.php"
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Inventario</title>
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/cuadricula_de_productos.css">
     <link rel="stylesheet" href="styles/barra_lateral_de_productos.css">
@@ -55,17 +56,7 @@ require_once "includes/modulo_entradas/lista_productos.php"
                         </tr>
                     </thead>
                     <tbody id="tabla-productos">
-                        <tr>
-                            <td>hola</td>
-                            <td>
-                                <input class="table-input" type="number">
-                            </td>
-                            <td>KILOS</td>
-                            <td>
-                                <input type="date" class="table-input" id="dateInput">
-                            </td>
-                            <td>❌</td>
-                        </tr>
+                        
                     </tbody>
                 </table>
                 <div class="form-footer">

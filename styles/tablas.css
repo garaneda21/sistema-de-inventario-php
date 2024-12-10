@@ -17,7 +17,7 @@
 }
 
 .products-table th {
-    background-color: #007bff;
+    background-color: var(--azul);
     color: white;
 }
 
