@@ -1,9 +1,14 @@
 /* Barra lateral */
 .sidebar-productos {
-    width: 40%;
-    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    background-color: #f9f9f9;
     color: #000000;
-    padding: 15px;
+    padding: 0px;
+    overflow: hidden;
     overflow-y: auto;
-    box-shadow: -2px 0 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+    max-height: 100vh;
+    box-shadow: -2px 0 20px rgba(0, 0, 0, 0.3);
 }

@@ -14,9 +14,12 @@ try {
     require_once "../db.php";
     require_once "ingresar_producto_modelo.php";
 
-    // Comprobar Errores
-    // ...
-    // Comprobar Errores
+    /* Comprobar Errores
+        - Inputs Vacíos
+        - Strings más largos que lo permitido
+        - Input Incorrecto (string en campo numérico)
+        - Producto que ya existe    
+    */
 
     ingresar_producto($pdo, $nombre_producto, $precio, $categoria, $unidad_de_medida, $stock_minimo, $codigo_de_barra, $tiempo_alerta_vencimiento);
 
