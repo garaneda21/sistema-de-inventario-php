@@ -1,8 +1,7 @@
-
 /* Botón principal */
 .open-modal-btn {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: var(--azul);
     color: white;
     border: none;
     border-radius: 5px;

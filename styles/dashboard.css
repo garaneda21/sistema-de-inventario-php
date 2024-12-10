@@ -1,0 +1,80 @@
+/* Contenedor principal del Dashboard */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Primera fila con 6 columnas */
+.simple-info {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: stretch;
+  /* Asegura que todas las tarjetas tengan la misma altura */
+}
+
+/* Botones con el diseño de tarjetas */
+.card-button {
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #202C39;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Asegura que el contenido se empuje y el indicador quede alineado */
+}
+
+.verde {
+  background-color: var(--verde);
+}
+
+.azul {
+  background-color: var(--azul);
+  color: white;
+}
+
+.rosa {
+  background-color: var(--rosa);
+}
+
+.naranja {
+  background-color: var(--naranja);
+}
+
+.rojo {
+  background-color: var(--rojo);
+}
+
+.card-button span {
+  display: block;
+  font-size: 1.8rem;
+  margin-top: 8px;
+}
+
+/* Segunda fila: Responsiva */
+.general-info {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 3fr));
+  /* Tarjetas con tamaño 3 columnas */
+}
+
+/* Estilo de las tarjetas */
+.info-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}

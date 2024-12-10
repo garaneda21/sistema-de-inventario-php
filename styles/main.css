@@ -1,0 +1,14 @@
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/Roboto/Roboto-Medium.ttf);
+}
+
+:root {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    --oscuro: #202C39;
+    --verde: #7de2d1;
+    --azul: #7699d4;
+    --rosa: #ffcad4;
+    --naranja: #f7af9d;
+    --rojo: #E05263;
+}

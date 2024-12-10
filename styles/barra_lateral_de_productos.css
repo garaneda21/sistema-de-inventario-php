@@ -1,8 +1,8 @@
 /* Barra lateral */
 .sidebar-productos {
-    flex: 1;
+    width: 40%;
     background-color: #ffffff;
-    color: #ecf0f1;
+    color: #000000;
     padding: 15px;
     overflow-y: auto;
     box-shadow: -2px 0 6px rgba(0, 0, 0, 0.3);

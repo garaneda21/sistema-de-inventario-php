@@ -10,7 +10,8 @@ require_once "includes/modulo_productos/modal_productos.php"
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Inventario</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/tablas.css">
     <link rel="stylesheet" href="styles/modal.css">
@@ -30,8 +31,6 @@ require_once "includes/modulo_productos/modal_productos.php"
 
         <!-- Área de contenido principal -->
         <main class="content">
-            <h1>Productos</h1>
-
             <!-- Botón Añadir Producto -->
             <button class="open-modal-btn" id="openModalBtn">Abrir Modal</button>
 
