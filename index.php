@@ -61,11 +61,21 @@ require_once "includes/dashboard/entradas_del_dia.php"
 
                 <!-- Segunda fila: Elementos con 2 o 4 columnas de espacio -->
                 <div class="dashboard-row general-info">
-                    <div class="info-card" style="grid-column: span 3;">Resumen de Stock</div>
-                    <div class="info-card" style="grid-column: span 3;">Análisis de Ventas</div>
-                    <div class="info-card" style="grid-column: span 3;">Tendencias de Mercado</div>
-                    <div class="info-card" style="grid-column: span 3;">Proveedores Actuales</div>
-                    <div class="info-card" style="grid-column: span 3;">Historial Entradas</div>
+                    <div class="info-card" style="grid-column: span 3;">
+                        Ventas realizadas en el día
+                    </div>
+                    <div class="info-card" style="grid-column: span 3;">
+                        Entradas realizadas en el día
+                    </div>
+                    <div class="info-card" style="grid-column: span 3;">
+                        Productos próximos a vencer 
+                    </div>
+                    <div class="info-card" style="grid-column: span 3;">
+                        Productos con bajo stock
+                    </div>
+                    <div class="info-card" style="grid-column: span 3;">
+                        Productos agotados
+                    </div>
                 </div>
             </div>
 
