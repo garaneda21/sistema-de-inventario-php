@@ -6,8 +6,10 @@
 :root {
     font-family: Roboto, Arial, Helvetica, sans-serif;
     --oscuro: #202C39;
-    --verde: #7de2d1;
-    --azul: #7699d4;
+    --verde: #76CD65;
+    --verde-oscuro: #518d45;
+    --azul: #1F8BFF;
+    --azul-oscuro: #1560b1;
     --rosa: #ffcad4;
     --naranja: #f7af9d;
     --rojo: #E05263;

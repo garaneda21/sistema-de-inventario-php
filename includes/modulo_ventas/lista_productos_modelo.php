@@ -1,8 +1,9 @@
-<?php 
+<?php
 
 declare(strict_types=1);
 
-function obtener_productos($pdo) {
+function obtener_productos(object $pdo)
+{
     $consulta = "
         SELECT
             p.id_producto,
@@ -23,5 +24,17 @@ function obtener_productos($pdo) {
 
     // obtener resultado de la base de datos como un array asociativo (php)
     $resul = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $resul;
+}
+
+function obtener_entradas_producto(object $pdo, int $id_producto)
+{
+    $consulta = "SELECT ep.id_entrada, ep.stock_actual_entrada, ep.fecha_vencimiento, e.fecha_entrada FROM entrada_producto ep LEFT JOIN entrada e ON ep.id_entrada = e.id_entrada WHERE ep.id_producto = :id_producto AND ep.stock_actual_entrada > 0;";
+    $stmt = $pdo->prepare($consulta);
+    $stmt->bindParam(":id_producto", $id_producto);
+    $stmt->execute();
+
+    $resul = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     return $resul;
 }

@@ -19,10 +19,7 @@ require_once "includes/modulo_productos/modal_productos.php"
 </head>
 
 <body>
-    <!-- Navbar superior -->
-    <header class="navbar">
-        <h1>Sistema de Inventario</h1>
-    </header>
+    <?php require_once "navbar.php" ?>
 
     <!-- Contenedor principal -->
     <div class="main-container">
