@@ -14,8 +14,6 @@ function insertar_productos($productos) {
             'nombre_unidad'     => $nombre_unidad,
         ] = $producto;
 
-        $nombre_producto = strtoupper($nombre_producto);
-
         if($nombre_unidad === "Unidad") {
             $stock_actual = (int) $stock_actual;
         }

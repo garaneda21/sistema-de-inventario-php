@@ -43,6 +43,7 @@ aside {
     flex-shrink: 0;
     /* Tamaño fijo */
     overflow-y: auto;
+    overflow-x: hidden;
     /* Habilita scroll en caso de contenido adicional */
 }
 
@@ -116,6 +117,8 @@ aside .sidebar-btn-large.entries:hover {
 }
 
 .separator {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 2px;
     background-color: #384c63;

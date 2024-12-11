@@ -34,6 +34,7 @@ form {
 .table-adjusted td {
   color: #495057;
   text-align: center;
+  text-transform: uppercase;
 }
 
 /* Inputs dentro de las celdas */

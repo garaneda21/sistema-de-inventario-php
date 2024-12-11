@@ -3,7 +3,7 @@ require_once "includes/modulo_entradas/lista_productos.php"
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
