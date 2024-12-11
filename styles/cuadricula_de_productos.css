@@ -32,6 +32,7 @@
     color: #333;
     margin-bottom: 4px;
     flex-grow: 1;
+    text-transform: uppercase;
 }
 
 /* Precio */
