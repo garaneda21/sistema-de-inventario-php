@@ -11,48 +11,55 @@ const modalBody = document.getElementById("modal-body");
 // Función para abrir el modal
 function openModal(id_producto) {
     // Encuentra la terjeta del producto correspondiente
-    const productoCard = document.querySelector(`.product-item[data-id='${id_producto}']`);
+    const productoCard = document.getElementById(`${id_producto}`);
 
+    const nombre = productoCard.dataset.nombre;
+    const unidad = productoCard.dataset.unidad;
+    const precio = productoCard.dataset.precio;
+    const entradas = JSON.parse(productoCard.dataset.entradas)
 
-    if (productoCard) {
-        const nombre = productoCard.dataset.nombre;
-        const unidad = productoCard.dataset.unidad;
-        const entradas = JSON.parse(productoCard.dataset.entradas)
+    // Actualizar título del modal
+    modalTitle.textContent = `${nombre}: Ingrese el lote del que venderá`;
 
-        // Actualizar título del modal
-        modalTitle.textContent = `${nombre}: Ingrese el lote del que venderá`;
+    // Limpiar cuerpo del modal
+    modalBody.innerText = ""
 
-        // Limpiar cuerpo del modal
-        modalBody.innerText = ""
+    // Agregar informacion de los lotes
+    entradas.forEach(entrada => {
 
-        // Agregar informacion de los lotes
-        entradas.forEach(element => {
-            const entradaDiv = document.createElement('div');
-            const fecha_entrada = element.fecha_entrada;
-            const fecha_vencimiento = element.fecha_vencimiento.split(' ')[0];
-            const stock_actual_entrada = unidad !== "Unidad" ? element.stock_actual_entrada : Number(element.stock_actual_entrada);
+        const id_entrada = entrada.id_entrada;
+        const fecha_entrada = entrada.fecha_entrada;
+        const fecha_vencimiento = entrada.fecha_vencimiento.split(' ')[0];
+        const stock_actual_entrada = unidad !== "Unidad" ? entrada.stock_actual_entrada : Number(entrada.stock_actual_entrada);
 
+        if (unidad === "Unidad") {
+            Number(entrada.stock_actual_entrada);
+        }
 
-            entradaDiv.classList.add("modal-item");
+        const entradaDiv = document.createElement('div');
+        entradaDiv.classList = "modal-item";
 
-            if(unidad === "Unidad") {
-                Number(element.stock_actual_entrada);
-            }
+        entradaDiv.onclick = () => {
+            agregar_a_tabla(id_producto, id_entrada, nombre, unidad, precio, stock_actual_entrada);
+        };
 
-            entradaDiv.innerHTML = `
+        //onclick="agregar_a_tabla(${id_producto}, ${nombre}, ${unidad}, ${precio});"
+
+        entradaDiv.innerHTML = `
                 <div class="modal-row">
+                    <div class="row-item"><strong>ID: </strong><span>${id_entrada}</span></div>
                     <div class="row-item"><strong>Fecha entrada: </strong><span>${fecha_entrada}</span></div>
                     <div class="row-item"><strong>Vence: </strong><span>${fecha_vencimiento}</span></div>
                     <div class="row-item"><strong>Stock Actual: </strong><span>${stock_actual_entrada} ${unidad}</span></div>
                 </div>
             `
 
-            modalBody.appendChild(entradaDiv);
-        });
+        modalBody.appendChild(entradaDiv);
+    });
 
 
-        modal.style.display = "block"; // Muestra el modal
-    }
+    modal.style.display = "block"; // Muestra el modal
+
 }
 
 

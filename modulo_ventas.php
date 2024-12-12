@@ -48,11 +48,12 @@ require_once "includes/modulo_ventas/lista_productos.php"
                 <table class="table-adjusted">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Producto</th>
                             <th>Cantidad</th>
                             <th>Unidad</th>
                             <th>Precio</th>
-                            <th>Quitar</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody id="tabla-productos">
@@ -101,14 +102,6 @@ require_once "includes/modulo_ventas/lista_productos.php"
                     </div>
                 </div>
 
-                <!-- Más rectángulos de productos -->
-                <div class="modal-item">
-                    <div class="modal-row">
-                        <div class="row-item"><strong>Producto:</strong> <span>Producto y </span></div>
-                        <div class="row-item"><strong>Cantidad:</strong> 40</div>
-                        <div class="row-item"><strong>Categoria:</strong> Categoría B</div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
