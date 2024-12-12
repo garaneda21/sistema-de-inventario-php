@@ -11,6 +11,7 @@ function obtener_productos(object $pdo, string $busqueda, int $limite, int $offs
             p.stock_actual,
             p.stock_minimo,
             p.codigo_de_barra,
+            p.requiere_fecha_vencimiento,
             c.nombre_categoria,
             u.nombre_unidad,
             pr.precio

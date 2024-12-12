@@ -48,6 +48,7 @@ function agregar_a_tabla(id, nombre, unidad, requiere_venc) {
     input_vencimiento.setAttribute('name', `productos[${id}][vencimiento]`);
     input_vencimiento.setAttribute('class', 'table-input');
     input_vencimiento.setAttribute('type', 'date');
+console.log(requiere_venc);
     if(requiere_venc) {
         input_vencimiento.setAttribute('required', '');
     } else {
