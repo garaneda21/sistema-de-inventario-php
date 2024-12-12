@@ -43,7 +43,7 @@ CREATE TABLE costo (
     fecha_inicio_costo DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     fecha_fin_costo DATETIME,
     id_producto INT UNSIGNED NOT NULL,
-    PRIMARY KEY (id_precio)
+    PRIMARY KEY (id_costo)
 );
 
 CREATE TABLE entrada_producto(
@@ -88,6 +88,9 @@ ADD FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria),
 ADD FOREIGN KEY (id_unidad) REFERENCES unidad_de_medida(id_unidad);
 
 ALTER TABLE precio
+ADD FOREIGN KEY (id_producto) REFERENCES producto(id_producto);
+
+ALTER TABLE costo
 ADD FOREIGN KEY (id_producto) REFERENCES producto(id_producto);
 
 ALTER TABLE entrada_producto
