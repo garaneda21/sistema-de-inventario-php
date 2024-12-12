@@ -1,5 +1,5 @@
 /* Estilo para el formulario en la tabla */
-form {
+.formulario-de-tabla form {
   display: flex;
   flex-direction: column;
   gap: 20px;

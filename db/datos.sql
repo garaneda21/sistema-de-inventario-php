@@ -17,32 +17,32 @@ INSERT INTO motivo_salida (nombre_motivo) VALUES
 -- Productos en la categoría "Frutas y verduras"
 INSERT INTO producto (nombre_producto, total_vendidos, stock_actual, stock_minimo, codigo_de_barra, tiempo_alerta_vencimiento, id_categoria, id_unidad)
 VALUES
-('Manzanas', 0, 50.00, 10, 7801234000012, 7, 1, 2),
-('Plátanos', 0, 30.00, 10, 7801234000029, 7, 1, 2);
+('Manzanas', 0, 0, 10, 7801234000012, 7, 1, 2),
+('Plátanos', 0, 0, 10, 7801234000029, 7, 1, 2);
 
 -- Productos en la categoría "Bebidas"
 INSERT INTO producto (nombre_producto, total_vendidos, stock_actual, stock_minimo, codigo_de_barra, tiempo_alerta_vencimiento, id_categoria, id_unidad)
 VALUES
-('Coca Cola 1.5L', 0, 20.00, 5, 7801234000036, 0, 2, 1),
-('Jugo de Naranja Watts 1L', 0, 15.00, 5, 7801234000043, 0, 2, 1);
+('Coca Cola 1.5L', 0, 0, 5, 7801234000036, 0, 2, 1),
+('Jugo de Naranja Watts 1L', 0, 0, 5, 7801234000043, 0, 2, 1);
 
 -- Productos en la categoría "Quesos"
 INSERT INTO producto (nombre_producto, total_vendidos, stock_actual, stock_minimo, codigo_de_barra, tiempo_alerta_vencimiento, id_categoria, id_unidad)
 VALUES
-('Queso Gouda', 0, 10.00, 2, 7801234000050, 10, 3, 2),
-('Queso Parmesano', 0, 5.00, 1, 7801234000067, 10, 3, 2);
+('Queso Gouda', 0, 0, 2, 7801234000050, 10, 3, 2),
+('Queso Parmesano', 0, 0, 1, 7801234000067, 10, 3, 2);
 
 -- Productos en la categoría "Otro"
 INSERT INTO producto (nombre_producto, total_vendidos, stock_actual, stock_minimo, codigo_de_barra, tiempo_alerta_vencimiento, id_categoria, id_unidad)
 VALUES
-('Detergente Ariel 1kg', 0, 20.00, 3, 7801234000074, 0, 4, 2),
-('Papel Higiénico Elite 6 rollos', 0, 15.00, 5, 7801234000081, 0, 4, 1);
+('Detergente Ariel 1kg', 0, 0, 3, 7801234000074, 0, 4, 2),
+('Papel Higiénico Elite 6 rollos', 0, 0, 5, 7801234000081, 0, 4, 1);
 
 -- Productos en la categoría "Comida chatarra"
 INSERT INTO producto (nombre_producto, total_vendidos, stock_actual, stock_minimo, codigo_de_barra, tiempo_alerta_vencimiento, id_categoria, id_unidad)
 VALUES
-('Papas Fritas Lays 170g', 0, 25.00, 5, 7801234000098, 0, 4, 1),
-('Barra de Chocolate Sahne-Nuss', 0, 30.00, 10, 7801234000104, 0, 4, 1);
+('Papas Fritas Lays 170g', 0, 0, 5, 7801234000098, 0, 4, 1),
+('Barra de Chocolate Sahne-Nuss', 0, 0, 10, 7801234000104, 0, 4, 1);
 
 -- Precios de los productos
 INSERT INTO precio (precio, id_producto) VALUES

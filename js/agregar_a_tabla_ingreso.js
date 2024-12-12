@@ -1,4 +1,4 @@
-function agregar_a_tabla(id, nombre, unidad) {
+function agregar_a_tabla(id, nombre, unidad, requiere_venc) {
 
     const comprobar_fila = document.getElementById(id);
     if (comprobar_fila) {
@@ -48,7 +48,11 @@ function agregar_a_tabla(id, nombre, unidad) {
     input_vencimiento.setAttribute('name', `productos[${id}][vencimiento]`);
     input_vencimiento.setAttribute('class', 'table-input');
     input_vencimiento.setAttribute('type', 'date');
-    input_vencimiento.setAttribute('required', '');
+    if(requiere_venc) {
+        input_vencimiento.setAttribute('required', '');
+    } else {
+        input_vencimiento.setAttribute('hidden', '');
+    }
     celda_vencimiento.appendChild(input_vencimiento);
 
     // Botón para quitar el producto

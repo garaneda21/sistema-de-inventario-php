@@ -1,0 +1,77 @@
+<?php
+
+declare(strict_types=1);
+
+function registrar_salida(object $pdo)
+{
+    $consulta = "INSERT INTO salida (id_motivo) VALUES (1);";
+    $stmt = $pdo->prepare($consulta);
+    $stmt->execute();
+
+    $id_salida = $pdo->lastInsertID();
+    return $id_salida;
+}
+
+function actualizar_lote(
+    object $pdo,
+    int $id_producto,
+    int $id_entrada,
+    int|float $cantidad
+) {
+    $consulta = "UPDATE entrada_producto 
+        SET stock_actual_entrada = stock_actual_entrada - :cantidad
+        WHERE id_producto = :id_producto AND id_entrada = :id_entrada;
+    ";
+
+    $stmt = $pdo->prepare($consulta);
+
+    $stmt->bindParam(":cantidad", $cantidad);
+    $stmt->bindParam(":id_producto", $id_producto);
+    $stmt->bindParam(":id_entrada", $id_entrada);
+
+    $stmt->execute();
+}
+
+
+function registrar_salida_de_producto(
+    object $pdo,
+    int $id_producto,
+    int $id_salida,
+    int|float $salida_total,
+) {
+    $consulta = "INSERT INTO salida_producto VALUES (:id_producto, :id_salida, :cantidad_salida);";
+    $stmt = $pdo->prepare($consulta);
+
+    $stmt->bindParam(":id_producto", $id_producto);
+    $stmt->bindParam(":id_salida", $id_salida);
+    $stmt->bindParam(":cantidad_salida", $salida_total);
+
+    $stmt->execute();
+
+    // Actualizar Cantidad de los productos
+    $stock_restante = (float) stock_restante($pdo , (int) $id_producto);
+
+    $consulta = "UPDATE producto 
+        SET stock_actual = :stock_restante, total_vendidos = total_vendidos + :salida_total
+        WHERE id_producto = :id_producto;
+    ";
+    $stmt = $pdo->prepare($consulta);
+
+    $stmt->bindParam(":stock_restante", $stock_restante);
+    $stmt->bindParam(":salida_total", $salida_total);
+    $stmt->bindParam(":id_producto", $id_producto);
+
+    $stmt->execute();
+}
+
+function stock_restante(object $pdo, int $id_producto)
+{
+    $consulta = "SELECT sum(stock_actual_entrada) as stock_restante FROM entrada_producto WHERE id_producto = :id_producto AND stock_actual_entrada > 0;";
+
+    $stmt = $pdo->prepare($consulta);
+    $stmt->bindParam(":id_producto", $id_producto);
+    $stmt->execute();
+    $resul = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    return $resul[0]["stock_restante"];
+}
