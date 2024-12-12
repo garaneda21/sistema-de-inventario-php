@@ -10,7 +10,7 @@ function tabla_de_productos(array $productos) {
         <table class=\"products-table\">
             <thead>
                 <tr>
-                    <th>Nombre</th>
+                    <th>Nombre producto</th>
                     <th>Precio</th>
                     <th>Categoría</th>
                     <th>Unidad de medida</th>
@@ -19,7 +19,7 @@ function tabla_de_productos(array $productos) {
                     <th>Stock mínimo<br>(para alerta de stock)</th>
                     <th>Código de barra</th>
                     <th>Alerta de <br> vencimiento<br>[días]</th>
-                    <th>Editar Entrada</th>
+                    <th>Editar Datos</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,7 +29,7 @@ function tabla_de_productos(array $productos) {
 
             echo "<tr>";
             echo "    <td>" . $producto["nombre_producto"] . "</td>";
-            echo "    <td>$ " . $producto["precio"] . "</td>";
+            echo "    <td>$" . $producto["precio"] . "</td>";
             echo "    <td>" . $producto["nombre_categoria"] . "</td>";
             echo "    <td>" . $producto["nombre_unidad"] . "</td>";
             echo "    <td>" . $producto["total_vendidos"] . "</td>";

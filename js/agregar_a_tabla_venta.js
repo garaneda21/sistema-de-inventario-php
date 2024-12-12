@@ -1,4 +1,5 @@
-const agregar_a_tabla = (id_producto, id_entrada, nombre, unidad, precio, stock_actual_entrada) => {
+const agregar_a_tabla = (contador, id_producto, id_entrada, nombre, unidad, precio, stock_actual_entrada) => {
+   
     
     const comprobar_fila = document.getElementById(`[${id_producto}][${id_entrada}]`);
     console.log(comprobar_fila);
@@ -16,8 +17,9 @@ const agregar_a_tabla = (id_producto, id_entrada, nombre, unidad, precio, stock_
 
     nuevaFila.innerHTML = `
         <td>
-            <input type="hidden" name="productos[${id_producto}][${id_entrada}][nombre]" value="${id_entrada}" required>
-            ${id_entrada}
+            <input type="hidden" name="productos[${id_producto}][${id_entrada}][id_producto]" value="${id_producto}" required>
+            <input type="hidden" name="productos[${id_producto}][${id_entrada}][id_entrada]" value="${id_entrada}" required>
+            ${contador}
         </td>
         <td>
             ${nombre}
@@ -44,7 +46,7 @@ const agregar_a_tabla = (id_producto, id_entrada, nombre, unidad, precio, stock_
         </td>
         <td>
             <input type="hidden" name="productos[${id_producto}][${id_entrada}][precio]" value="${precio}">
-            ${precio}
+            $${precio}
         </td>
         <td>
             <button type="button" class="button-remove-row" onclick="quitarFila(this)">&times;</button>

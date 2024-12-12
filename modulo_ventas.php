@@ -12,6 +12,7 @@ require_once "includes/modulo_ventas/lista_productos.php"
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/modulo_ventas/busqueda.css">
     <link rel="stylesheet" href="styles/cuadricula_de_productos.css">
     <link rel="stylesheet" href="styles/barra_lateral_de_productos.css">
     <link rel="stylesheet" href="styles/tablas_venta_producto.css">
@@ -19,8 +20,6 @@ require_once "includes/modulo_ventas/lista_productos.php"
 </head>
 
 <body>
-    <?php require_once "navbar.php" ?>
-
     <!-- Contenedor principal -->
     <div class="main-container">
         <!-- Panel lateral -->
@@ -29,12 +28,29 @@ require_once "includes/modulo_ventas/lista_productos.php"
         <!-- Área de contenido principal -->
         <main class="content">
 
+            <!-- Formulario para búsqueda y paginación -->
+            <form method="get" class="search-pagination-form">
+                <!-- Barra de búsqueda -->
+                <div class="search-container">
+                    <input type="text" name="busqueda" placeholder="Buscar producto..." class="search-input" value="<?php echo isset($_GET['busqueda']) ? htmlspecialchars($_GET['busqueda']) : ''; ?>">
+                    <button type="submit" class="search-button">Buscar</button>
+                </div>
+
+                
+                <!-- <div class="pagination-container">
+                    <button type="submit" name="pagina" value="1" class="pagination-button">1</button>
+                    <button type="submit" name="pagina" value="2" class="pagination-button">2</button>
+                    <button type="submit" name="pagina" value="3" class="pagination-button">3</button>
+                    
+                </div> -->
+            </form>
+
+
             <div class="product-grid">
 
                 <?php
                 insertar_productos($productos);
                 ?>
-
 
             </div>
 
@@ -42,40 +58,42 @@ require_once "includes/modulo_ventas/lista_productos.php"
 
 
         <div class="sidebar-productos">
+            <div class="formulario-de-tabla">
+                <form action="includes/modulo_ventas/venta.php" method="post">
 
-            <form action="includes/modulo_ventas/venta.php" method="post">
+                    <table class="table-adjusted">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Unidad</th>
+                                <th>Precio</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-productos">
 
-                <table class="table-adjusted">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Producto</th>
-                            <th>Cantidad</th>
-                            <th>Unidad</th>
-                            <th>Precio</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabla-productos">
+                        </tbody>
+                    </table>
 
-                    </tbody>
-                </table>
+                    <div class="form-footer">
+                        <button type="submit" class="button-submit">
+                            <div class="icon icon-big">
+                                <img src="img/botones/shopping-cart.svg" alt="">
+                            </div>
+                            <p>Registrar Venta</p>
+                        </button>
+                    </div>
+                </form>
 
-                <div class="form-footer">
-                    <button type="submit" class="button-submit">
-                        <div class="icon icon-big">
-                            <img src="img/botones/shopping-cart.svg" alt="">
-                        </div>
-                        <p>Registrar Venta</p>
-                    </button>
-                </div>
-            </form>
+            </div>
 
         </div>
     </div>
 
-    <?php 
-     
+    <?php
+
     ?>
 
 
@@ -93,14 +111,6 @@ require_once "includes/modulo_ventas/lista_productos.php"
 
             <!-- Cuerpo del modal -->
             <div class="modal-body" id="modal-body">
-                <!-- Ejemplo de rectángulo con información del producto -->
-                <div class="modal-item">
-                    <div class="modal-row">
-                        <div class="row-item"><strong>Fecha entrada: </strong> <span>14:14<br>2025 Diciembre 6</span></div>
-                        <div class="row-item"><strong>Vence: </strong> <span>15 días <br> 2025-06-02</span> </div>
-                        <div class="row-item"><strong>Stock Actual: </strong> <span>30 Unidad </span></div>
-                    </div>
-                </div>
 
             </div>
         </div>

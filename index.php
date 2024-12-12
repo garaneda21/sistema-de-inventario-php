@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once "includes/dashboard/entradas_del_dia.php"
 ?>
 
@@ -13,11 +13,11 @@ require_once "includes/dashboard/entradas_del_dia.php"
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/pantalla_de_carga.css">
     <link rel="stylesheet" href="styles/dashboard.css">
 </head>
 
 <body>
-    <?php require_once "navbar.php" ?>
 
     <!-- Contenedor principal -->
     <div class="main-container">
@@ -65,7 +65,7 @@ require_once "includes/dashboard/entradas_del_dia.php"
                         Entradas realizadas en el día
                     </div>
                     <div class="info-card" style="grid-column: span 3;">
-                        Productos próximos a vencer 
+                        Productos próximos a vencer
                     </div>
                     <div class="info-card" style="grid-column: span 3;">
                         Productos con bajo stock
@@ -77,7 +77,16 @@ require_once "includes/dashboard/entradas_del_dia.php"
             </div>
 
         </main>
+
+
     </div>
+
+    <!-- <div id="loading-screen">
+        <div class="loader"></div>
+        <p>Cargando...</p>
+    </div> -->
+
+    <script src="js/pantalla_de_carga.js"></script>
 </body>
 
 </html>

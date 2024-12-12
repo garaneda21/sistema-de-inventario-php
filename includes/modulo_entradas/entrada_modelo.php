@@ -1,8 +1,9 @@
-<?php 
+<?php
 
 declare(strict_types=1);
 
-function registrar_entrada(object $pdo) {
+function registrar_entrada(object $pdo)
+{
     // Registrar Entrada
     $consulta = "INSERT INTO entrada VALUES ();";
     $stmt = $pdo->prepare($consulta);
@@ -12,10 +13,19 @@ function registrar_entrada(object $pdo) {
     return $id_entrada;
 }
 
-function registrar_entrada_de_producto(object $pdo, int $id_producto, int $id_entrada, int|float $cantidad, string $vencimiento) {
+function registrar_entrada_de_producto(
+    object $pdo,
+    int $id_producto,
+    int $id_entrada,
+    int|float $cantidad,
+    string $vencimiento
+) {
+    if (strlen($vencimiento) === 0) {
+        $vencimiento = null;
+    }
 
     // Registrar productos en la entrada
-    
+
     $consulta = "INSERT INTO entrada_producto VALUES 
         (:id_producto, :id_entrada, :cantidad_entrada, :stock_actual_entrada,  :fecha_vencimiento);
     ";
@@ -28,7 +38,7 @@ function registrar_entrada_de_producto(object $pdo, int $id_producto, int $id_en
     $stmt->bindParam(":fecha_vencimiento", $vencimiento);
 
     $stmt->execute();
-    
+
     // Actualizar Cantidad de los productos
 
     $consulta = "UPDATE producto 

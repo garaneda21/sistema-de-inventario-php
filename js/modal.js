@@ -1,28 +1,35 @@
-// Seleccionar elementos del DOM
-const openModalBtn = document.getElementById('openModalBtn');
-const modalOverlay = document.getElementById('modalOverlay');
-const closeModalBtn = document.getElementById('closeModalBtn');
-const acceptBtn = document.getElementById('acceptBtn');
+// Obtener el modal y el botón de apertura
+var modal = document.getElementById("productModal");
+var openModalBtn = document.getElementById("open-modal-btn");
+var closeModalBtn = document.getElementById("close-btn");
 
-// Abrir el modal
-openModalBtn.addEventListener('click', () => {
-    modalOverlay.style.display = 'flex'; // Mostrar el overlay con flexbox
-});
+// Mostrar el modal
+openModalBtn.onclick = function () {
+    modal.style.display = "flex"; // Muestra el modal
+}
 
-// Cerrar el modal (al pulsar cancelar)
-closeModalBtn.addEventListener('click', () => {
-    modalOverlay.style.display = 'none'; // Ocultar el overlay
-});
+// Cerrar el modal
+closeModalBtn.onclick = function () {
+    modal.style.display = "none"; // Oculta el modal
+}
 
-// Opción de aceptar
-acceptBtn.addEventListener('click', () => {
-    alert('Aceptado');
-    modalOverlay.style.display = 'none'; // Cerrar el modal después de aceptar
-});
+// Cerrar el modal si se hace clic fuera del contenido
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 
-// Cerrar el modal al hacer clic fuera del contenido
-modalOverlay.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) {
-        modalOverlay.style.display = 'none'; // Ocultar el overlay
+// Mostrar/ocultar el campo de "Tiempo para advertencia de vencimiento"
+var requiresExpiry = document.getElementById("requires-expiry");
+var expiryTimeContainer = document.getElementById("expiry-time-container");
+
+requiresExpiry.addEventListener("change", function () {
+    if (this.value === "1") {
+        expiryTimeContainer.style.display = "flex"; // Muestra el campo
+        document.getElementById("expiry-time").removeAttribute("disabled");
+    } else {
+        expiryTimeContainer.style.display = "none"; // Oculta el campo
+        document.getElementById("expiry-time").setAttribute("disabled", "true");
     }
 });

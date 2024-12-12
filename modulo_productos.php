@@ -14,12 +14,11 @@ require_once "includes/modulo_productos/modal_productos.php"
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/tablas.css">
-    <link rel="stylesheet" href="styles/modal.css">
-    <link rel="stylesheet" href="styles/formulario.css">
+    <link rel="stylesheet" href="styles/modulo_productos/modal_ingreso_producto.css">
+    <!-- <link rel="stylesheet" href="styles/formulario.css"> -->
 </head>
 
 <body>
-    <?php require_once "navbar.php" ?>
 
     <!-- Contenedor principal -->
     <div class="main-container">
@@ -28,66 +27,86 @@ require_once "includes/modulo_productos/modal_productos.php"
 
         <!-- Área de contenido principal -->
         <main class="content">
-            <!-- Botón Añadir Producto -->
-            <button class="open-modal-btn" id="openModalBtn">Abrir Modal</button>
+
+            <!-- Botón para abrir el modal -->
+            <button id="open-modal-btn" class="button-submit">Ingresar nuevo producto</button>
 
             <!-- Tabla de productos -->
             <?php
             tabla_de_productos($productos);
             ?>
 
-            <!-- Overlay oscuro -->
-            <div class="modal-overlay" id="modalOverlay">
-                <!-- Contenedor del modal -->
-                <div class="modal">
-                    <h2>Ingresar nuevo producto al inventario</h2>
+            <!-- Modal -->
+            <div id="productModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-title">
+                        Ingresar Nuevo Producto
+                    </div>
 
-                    <form class="form-container" action="includes/modulo_productos/ingresar_producto.php" method="post">
-                        <label>Nombre del producto</label>
-                        <input type="text" name="nombre_producto" placeholder="Ingrese nombre del producto" required>
+                    <!-- Cerrar botón -->
+                    <button id="close-btn" class="close-btn">&times;</button>
 
-                        <label>Precio</label>
-                        <input type="number" name="precio" placeholder="$ 1000" required>
-
-
-
-                        <label>Categoría</label>
-                        <select name="categoria" required>
-                            <option value="">Seleccione una opción</option>
-                            <?php 
-                            datos_categorias($categorias);
-                            ?>
-                        </select>
-
-                        <label>Unidad de medida</label>
-                        <select name="unidad_de_medida" required>
-                            <option value="">Seleccione una opción</option>
-                            <?php 
-                            datos_unidad($unidades_de_medida);
-                            ?>
-                        </select>
-
-                        <label>Stock mínimo (para alerta de bajo stock)</label>
-                        <input type="number" name="stock_minimo" placeholder="Stock mínimo" required>
-
-                        <label>Código de barras</label>
-                        <input type="number" name="codigo_de_barra" placeholder="Código de barras">
-
-                        <label>Tiempo para activar alerta de vencimiento (días)</label>
-                        <input type="number" name="tiempo_alerta_vencimiento" placeholder="días para activar alerta de vencimiento">
-
-                        
-                        <button type="submit">Enviar</button>
-                    </form>
-
-
-                    <!-- Botones del modal -->
-                    <button class="cancel-btn" id="closeModalBtn">Cancelar</button>
+                    <!-- Cuerpo del modal -->
+                    <div class="modal-body">
+                        <form id="product-form" action="includes/modulo_productos/ingresar_producto.php" method="post">
+                            <div class="modal-row">
+                                <label for="product-name" class="modal-label">Nombre del Producto:</label>
+                                <input type="text" id="product-name" name="nombre_producto" class="modal-input" placeholder="Empanada de queso" required>
+                            </div>
+                            <div class="modal-row">
+                                <label for="product-price" class="modal-label">Precio:</label>
+                                <input type="number" id="product-price" name="precio" class="modal-input" min="0" placeholder="$2000" required>
+                            </div>
+                            <div class="modal-row">
+                                <label for="product-category" class="modal-label">Categoría:</label>
+                                <select id="product-category" name="categoria" class="modal-input" required>
+                                    <option value="">Seleccione una categoría...</option>
+                                    <?php
+                                    datos_categorias($categorias);
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="modal-row">
+                                <label for="unit-measure" class="modal-label">Unidad de Medida:</label>
+                                <select id="unit-measure" name="unidad_de_medida" class="modal-input" required>
+                                    <option value="">Seleccione una unidad de medida para el producto...</option>
+                                    <?php
+                                    datos_unidad($unidades_de_medida);
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="modal-row">
+                                <label for="min-stock" class="modal-label">Stock Mínimo (dependerá de la unidad):</label>
+                                <input type="number" id="min-stock" name="stock_minimo" min="0" class="modal-input" required>
+                            </div>
+                            <div class="modal-row">
+                                <label for="barcode" class="modal-label">Código de Barras (puede quedar vacío):</label>
+                                <input type="text" id="barcode" name="codigo_de_barra" class="modal-input" placeholder="Usar escaner aquí...">
+                            </div>
+                            <div class="modal-row">
+                                <label for="requires-expiry" class="modal-label">Requiere Fecha de Vencimiento:</label>
+                                <select id="requires-expiry" name="requiere_fecha_vencimiento" class="modal-input" required>
+                                    <option value="1">Sí</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                            <div class="modal-row" id="expiry-time-container" hidden>
+                                <label for="expiry-time" class="modal-label">Tiempo para Advertencia de Vencimiento (días):</label>
+                                <input type="number" id="expiry-time" name="tiempo_alerta_vencimiento" class="modal-input">
+                            </div>
+                            <div class="modal-row">
+                                <button type="submit" class="modal-submit">Guardar Producto</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-
             </div>
+
+
         </main>
+
     </div>
+
 
     <script src="js/modal.js"></script>
 </body>
