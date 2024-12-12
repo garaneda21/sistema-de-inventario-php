@@ -37,6 +37,15 @@ CREATE TABLE precio (
     PRIMARY KEY (id_precio)
 );
 
+CREATE TABLE costo (
+    id_costo INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    costo INT UNSIGNED NOT NULL,
+    fecha_inicio_costo DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    fecha_fin_costo DATETIME,
+    id_producto INT UNSIGNED NOT NULL,
+    PRIMARY KEY (id_precio)
+);
+
 CREATE TABLE entrada_producto(
     id_producto INT UNSIGNED NOT NULL,
     id_entrada INT UNSIGNED NOT NULL,
