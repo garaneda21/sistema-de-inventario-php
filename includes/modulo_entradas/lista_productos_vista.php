@@ -19,10 +19,10 @@ function insertar_productos($productos) {
         }
         
         echo "
-            <div class=\"product-item\" onclick=\"agregar_a_tabla($id_producto, '$nombre_producto', '$nombre_unidad');\">
-                <div class=\"product-name\"> $nombre_producto</div>
-                <span class=\"category\">$nombre_categoria</span>
-                <span class=\"stock\">Stock: $stock_actual $nombre_unidad</span>
+            <div class='product-item' onclick=\"agregar_a_tabla($id_producto, '$nombre_producto', '$nombre_unidad');\">
+                <div class='product-name'> $nombre_producto</div>
+                <span class='category'>$nombre_categoria</span>
+                <span class='stock'>Stock: $stock_actual $nombre_unidad</span>
             </div>
         ";
     }

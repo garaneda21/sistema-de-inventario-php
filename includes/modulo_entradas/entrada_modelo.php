@@ -17,13 +17,14 @@ function registrar_entrada_de_producto(object $pdo, int $id_producto, int $id_en
     // Registrar productos en la entrada
     
     $consulta = "INSERT INTO entrada_producto VALUES 
-        (:id_producto, :id_entrada, :cantidad_entrada, :fecha_vencimiento);
+        (:id_producto, :id_entrada, :cantidad_entrada, :stock_actual_entrada,  :fecha_vencimiento);
     ";
     $stmt = $pdo->prepare($consulta);
 
     $stmt->bindParam(":id_producto", $id_producto);
     $stmt->bindParam(":id_entrada", $id_entrada);
     $stmt->bindParam(":cantidad_entrada", $cantidad);
+    $stmt->bindParam(":stock_actual_entrada", $cantidad);
     $stmt->bindParam(":fecha_vencimiento", $vencimiento);
 
     $stmt->execute();

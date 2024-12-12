@@ -17,12 +17,12 @@ CREATE TABLE producto (
     id_producto INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nombre_producto VARCHAR(200) NOT NULL,
     total_vendidos BIGINT UNSIGNED DEFAULT 0, 
-    stock_actual DECIMAL(20,2) NOT NULL DEFAULT 0,
     stock_minimo INT UNSIGNED NOT NULL,
+    stock_actual DECIMAL(20,2) UNSIGNED NOT NULL DEFAULT 0,
     codigo_de_barra BIGINT UNSIGNED,
     tiempo_alerta_vencimiento INT UNSIGNED,
-    activo BOOLEAN NOT NULL DEFAULT 1;
-    requiere_fecha_vencimiento BOOLEAN NOT NULL DEFAULT 1;
+    activo BOOLEAN NOT NULL DEFAULT 1,
+    requiere_fecha_vencimiento BOOLEAN NOT NULL DEFAULT 1,
     id_categoria INT UNSIGNED NOT NULL,
     id_unidad INT UNSIGNED NOT NULL,
     PRIMARY KEY (id_producto)
@@ -41,6 +41,7 @@ CREATE TABLE entrada_producto(
     id_producto INT UNSIGNED NOT NULL,
     id_entrada INT UNSIGNED NOT NULL,
     cantidad_entrada DECIMAL(20,2) UNSIGNED NOT NULL,
+    stock_actual_entrada DECIMAL(20,2) UNSIGNED NOT NULL,
     fecha_vencimiento DATETIME,
     PRIMARY KEY (id_producto, id_entrada)
 );

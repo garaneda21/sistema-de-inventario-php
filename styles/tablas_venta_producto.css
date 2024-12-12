@@ -8,8 +8,7 @@ form {
 
 /* Tabla ajustada */
 .table-adjusted {
-  table-layout: fixed;
-  width: 100%;
+  width: auto;
   background-color: white;
   border-collapse: collapse;
   position: relative;
@@ -26,8 +25,8 @@ form {
 }
 
 .table-adjusted th {
-  background-color: var(--azul);
-  color: white;
+  background-color: var(--verde);
+  color: black;
   text-transform: uppercase;
   text-align: center;
 }
@@ -70,16 +69,21 @@ form {
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 0.9rem;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: bold;
   cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: background-color 0.2s;
 }
 
 .button-remove-row:hover {
   background-color: #c82333;
 }
-
 
 /* Botón de ingresar */
 .form-footer {
@@ -100,17 +104,17 @@ form {
 .button-submit {
   display: flex;
   align-items: center;
-  background-color: var(--azul);
+  background-color: var(--verde);
   color: black;
   border: none;
   border-radius: 5px;
-  padding: 5px 15px;
+  padding: 5px 50px;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 .button-submit img {
-  width: 50px;
+  width: 30px;
 }
 
 .button-submit p {
@@ -120,5 +124,5 @@ form {
 }
 
 .button-submit:hover {
-  background-color: var(--azul-oscuro);
+  background-color: var(--verde-oscuro);
 }

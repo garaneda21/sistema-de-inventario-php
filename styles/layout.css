@@ -101,7 +101,7 @@ aside .sidebar-btn-large.sales {
 }
 
 aside .sidebar-btn-large.sales:hover {
-    background-color: #4ACAB1;
+    background-color: var(--verde-oscuro);
     /* Efecto hover verde */
 }
 
@@ -112,7 +112,7 @@ aside .sidebar-btn-large.entries {
 }
 
 aside .sidebar-btn-large.entries:hover {
-    background-color: #517ABF;
+    background-color: var(--azul-oscuro);
     /* Efecto hover azul */
 }
 

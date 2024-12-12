@@ -18,10 +18,7 @@ require_once "includes/modulo_entradas/lista_productos.php"
 </head>
 
 <body>
-    <!-- Navbar superior -->
-    <header class="navbar">
-        <h1>Sistema de Inventario</h1>
-    </header>
+    <?php require_once "navbar.php" ?>
 
     <!-- Contenedor principal -->
     <div class="main-container">
@@ -49,10 +46,10 @@ require_once "includes/modulo_entradas/lista_productos.php"
                     <thead>
                         <tr>
                             <th>Producto</th>
-                            <th>Cantidad</th>
-                            <th>Unidad</th>
-                            <th>Fecha de Vencimiento</th>
-                            <th>Quitar</th>
+                            <th width="80px">Cantidad</th>
+                            <th width="70px">Unidad</th>
+                            <th width="150px">Fecha de Vencimiento</th>
+                            <th width="50px">Quitar</th>
                         </tr>
                     </thead>
                     <tbody id="tabla-productos">

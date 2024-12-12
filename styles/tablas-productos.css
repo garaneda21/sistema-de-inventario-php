@@ -1,15 +1,6 @@
-/* Estilo para el formulario en la tabla */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  min-height: 100vh;
-}
-
 /* Tabla ajustada */
 .table-adjusted {
-  table-layout: fixed;
-  width: 100%;
+  width: auto;
   background-color: white;
   border-collapse: collapse;
   position: relative;
@@ -18,15 +9,15 @@ form {
 
 .table-adjusted th,
 .table-adjusted td {
-  padding: 2px 15px;
+  padding: 10px 15px;
   text-align: left;
   border: 1px solid #dee2e6;
   font-size: 1rem;
-  height: 50px;
+  height: 80px;
 }
 
 .table-adjusted th {
-  background-color: var(--azul);
+  background-color: var(--oscuro);
   color: white;
   text-transform: uppercase;
   text-align: center;
@@ -78,47 +69,4 @@ form {
 
 .button-remove-row:hover {
   background-color: #c82333;
-}
-
-
-/* Botón de ingresar */
-.form-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: auto;
-  position: sticky;
-  bottom: 0;
-  width: 100%;
-  background: white;
-  box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.3);
-  z-index: 10;
-  padding: 20px 0px;
-  text-align: center;
-}
-
-.button-submit {
-  display: flex;
-  align-items: center;
-  background-color: var(--azul);
-  color: black;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 15px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.button-submit img {
-  width: 50px;
-}
-
-.button-submit p {
-  font-family: Roboto, Arial, Helvetica, sans-serif;
-  font-size: 24px;
-  margin: 15px;
-}
-
-.button-submit:hover {
-  background-color: var(--azul-oscuro);
 }
