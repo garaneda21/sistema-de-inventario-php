@@ -22,9 +22,9 @@ foreach ($productos as &$producto) {
         'stock_actual'      => $stock_actual,
         'stock_minimo'      => $stock_minimo,
         'codigo_de_barra'   => $codigo_de_barra,
-        'nombre_categoria'  => $nombre_categoria,
         'nombre_unidad'     => $nombre_unidad,
-        'precio'            => $precio
+        'precio'            => $precio,
+        'costo'             => $costo
     ] = $producto;
 
     $entradas = obtener_entradas_producto($pdo, (int) $id_producto);

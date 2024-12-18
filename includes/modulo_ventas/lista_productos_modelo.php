@@ -11,13 +11,13 @@ function obtener_productos(object $pdo, string $busqueda, int $limite, int $offs
             p.stock_actual,
             p.stock_minimo,
             p.codigo_de_barra,
-            c.nombre_categoria,
             u.nombre_unidad,
-            pr.precio
+            pr.precio,
+            c.costo
         FROM producto p
-        LEFT JOIN categoria c ON p.id_categoria = c.id_categoria
         LEFT JOIN unidad_de_medida u ON p.id_unidad = u.id_unidad
         LEFT JOIN precio pr ON p.id_producto = pr.id_producto
+        LEFT JOIN costo c ON p.id_producto = c.id_producto
         WHERE LOWER(p.nombre_producto) LIKE LOWER(:busqueda)
         ORDER BY p.nombre_producto
         LIMIT :limite OFFSET :offset
