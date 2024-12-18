@@ -50,11 +50,19 @@ require_once "includes/modulo_productos/modal_productos.php"
                     <div class="modal-body">
                         <form id="product-form" action="includes/modulo_productos/ingresar_producto.php" method="post">
                             <div class="modal-row">
+                                <label for="barcode" class="modal-label">Código de Barras (puede quedar vacío):</label>
+                                <input type="text" id="barcode" name="codigo_de_barra" class="modal-input" placeholder="Usar escaner aquí...">
+                            </div>
+                            <div class="modal-row">
                                 <label for="product-name" class="modal-label">Nombre del Producto:</label>
                                 <input type="text" id="product-name" name="nombre_producto" class="modal-input" placeholder="Empanada de queso" required>
                             </div>
                             <div class="modal-row">
-                                <label for="product-price" class="modal-label">Precio:</label>
+                                <label for="product-cost" class="modal-label">Precio de compra:</label>
+                                <input type="number" id="product-cost" name="costo" class="modal-input" min="0" placeholder="$1500" required>
+                            </div>
+                            <div class="modal-row">
+                                <label for="product-price" class="modal-label">Precio de venta:</label>
                                 <input type="number" id="product-price" name="precio" class="modal-input" min="0" placeholder="$2000" required>
                             </div>
                             <div class="modal-row">
@@ -67,12 +75,8 @@ require_once "includes/modulo_productos/modal_productos.php"
                                 </select>
                             </div>
                             <div class="modal-row">
-                                <label for="min-stock" class="modal-label">Stock Mínimo (dependerá de la unidad):</label>
+                                <label for="min-stock" class="modal-label">Stock Mínimo</label>
                                 <input type="number" id="min-stock" name="stock_minimo" min="0" class="modal-input" required>
-                            </div>
-                            <div class="modal-row">
-                                <label for="barcode" class="modal-label">Código de Barras (puede quedar vacío):</label>
-                                <input type="text" id="barcode" name="codigo_de_barra" class="modal-input" placeholder="Usar escaner aquí...">
                             </div>
                             <div class="modal-row">
                                 <label for="requires-expiry" class="modal-label">Requiere Fecha de Vencimiento:</label>
@@ -99,7 +103,7 @@ require_once "includes/modulo_productos/modal_productos.php"
     </div>
 
 
-    <script src="js/modal.js"></script>
+    <script src="js/modulo_productos/modal.js"></script>
 </body>
 
 </html>
