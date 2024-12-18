@@ -58,15 +58,6 @@ require_once "includes/modulo_productos/modal_productos.php"
                                 <input type="number" id="product-price" name="precio" class="modal-input" min="0" placeholder="$2000" required>
                             </div>
                             <div class="modal-row">
-                                <label for="product-category" class="modal-label">Categoría:</label>
-                                <select id="product-category" name="categoria" class="modal-input" required>
-                                    <option value="">Seleccione una categoría...</option>
-                                    <?php
-                                    datos_categorias($categorias);
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="modal-row">
                                 <label for="unit-measure" class="modal-label">Unidad de Medida:</label>
                                 <select id="unit-measure" name="unidad_de_medida" class="modal-input" required>
                                     <option value="">Seleccione una unidad de medida para el producto...</option>

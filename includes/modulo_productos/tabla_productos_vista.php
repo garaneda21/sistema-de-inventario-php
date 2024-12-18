@@ -11,14 +11,13 @@ function tabla_de_productos(array $productos) {
             <thead>
                 <tr>
                     <th>Nombre producto</th>
-                    <th>Precio</th>
-                    <th>Categoría</th>
-                    <th>Unidad de medida</th>
-                    <th>Total vendidos</th>
+                    <th>Precio de compra</th>
+                    <th>Precio de venta</th>
+                    <th>Medida</th>
                     <th>Stock actual</th>
-                    <th>Stock mínimo<br>(para alerta de stock)</th>
+                    <th>Stock mínimo</th>
+                    <th>Alerta de vencimiento</th>
                     <th>Código de barra</th>
-                    <th>Alerta de <br> vencimiento<br>[días]</th>
                     <th>Editar Datos</th>
                 </tr>
             </thead>
@@ -29,14 +28,13 @@ function tabla_de_productos(array $productos) {
 
             echo "<tr>";
             echo "    <td>" . $producto["nombre_producto"] . "</td>";
+            echo "    <td>$" . $producto["costo"] . "</td>";
             echo "    <td>$" . $producto["precio"] . "</td>";
-            echo "    <td>" . $producto["nombre_categoria"] . "</td>";
             echo "    <td>" . $producto["nombre_unidad"] . "</td>";
-            echo "    <td>" . $producto["total_vendidos"] . "</td>";
             echo "    <td>" . $producto["stock_actual"] . "</td>";
             echo "    <td>" . $producto["stock_minimo"] . "</td>";
+            echo "    <td>" . $producto["tiempo_alerta_vencimiento"] . " días</td>";
             echo "    <td>" . $producto["codigo_de_barra"] . "</td>";
-            echo "    <td>" . $producto["tiempo_alerta_vencimiento"] . "</td>";
             echo "    <td> <button>Lapiz</button> </td>";
             echo "</tr>";
         }         

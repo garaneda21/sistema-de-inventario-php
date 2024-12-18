@@ -30,7 +30,7 @@ CREATE TABLE producto (
 
 CREATE TABLE precio (
     id_precio INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    precio INT UNSIGNED NOT NULL,
+    precio INT UNSIGNED NOT NULL DEFAULT 0,
     fecha_inicio_precio DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     fecha_fin_precio DATETIME,
     id_producto INT UNSIGNED NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE precio (
 
 CREATE TABLE costo (
     id_costo INT UNSIGNED NOT NULL AUTO_INCREMENT, 
-    costo INT UNSIGNED NOT NULL, 
+    costo INT UNSIGNED NOT NULL DEFAULT 0, 
     fecha_inicio_costo DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, 
     fecha_fin_costo DATETIME,
     id_producto INT UNSIGNED NOT NULL,
@@ -94,6 +94,7 @@ ADD FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria),
 ADD FOREIGN KEY (id_unidad) REFERENCES unidad_de_medida(id_unidad);
 
 ALTER TABLE producto_por_registrar
+ADD FOREIGN KEY (id_producto) REFERENCES producto(id_producto);
 
 ALTER TABLE precio
 ADD FOREIGN KEY (id_producto) REFERENCES producto(id_producto);
