@@ -86,7 +86,7 @@ require_once "includes/dashboard/entradas_del_dia.php"
         <p>Cargando...</p>
     </div> -->
 
-    <script src="js/pantalla_de_carga.js"></script>
+    <!-- <script src="js/pantalla_de_carga.js"></script> -->
 </body>
 
 </html>

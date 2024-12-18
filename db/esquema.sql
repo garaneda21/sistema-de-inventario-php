@@ -7,23 +7,23 @@ CREATE TABLE unidad_de_medida (
     PRIMARY KEY (id_unidad)
 );
 
-CREATE TABLE categoria (
-    id_categoria INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    nombre_categoria VARCHAR(20) NOT NULL,
-    PRIMARY KEY (id_categoria)
-);
+-- CREATE TABLE categoria (
+--     id_categoria INT UNSIGNED NOT NULL AUTO_INCREMENT,
+--     nombre_categoria VARCHAR(20) NOT NULL,
+--     PRIMARY KEY (id_categoria)
+-- );
 
 CREATE TABLE producto (
     id_producto INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    nombre_producto VARCHAR(200) NOT NULL,
+    nombre_producto VARCHAR(250) NOT NULL,
     total_vendidos BIGINT UNSIGNED DEFAULT 0, 
     stock_minimo INT UNSIGNED NOT NULL,
     stock_actual DECIMAL(20,2) NOT NULL DEFAULT 0,
     codigo_de_barra VARCHAR(20),
     tiempo_alerta_vencimiento INT UNSIGNED,
-    activo TINYINT NOT NULL DEFAULT 1,
-    requiere_fecha_vencimiento TINYINT NOT NULL DEFAULT 1,
-    id_categoria INT UNSIGNED NOT NULL,
+    activo CHAR(1) NOT NULL DEFAULT 1,
+    requiere_fecha_vencimiento CHAR(1) NOT NULL DEFAULT 1,
+    -- id_categoria INT UNSIGNED NOT NULL,
     id_unidad INT UNSIGNED NOT NULL,
     PRIMARY KEY (id_producto)
 );
@@ -38,12 +38,18 @@ CREATE TABLE precio (
 );
 
 CREATE TABLE costo (
-    id_costo INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    costo INT UNSIGNED NOT NULL,
-    fecha_inicio_costo DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    id_costo INT UNSIGNED NOT NULL AUTO_INCREMENT, 
+    costo INT UNSIGNED NOT NULL, 
+    fecha_inicio_costo DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, 
     fecha_fin_costo DATETIME,
     id_producto INT UNSIGNED NOT NULL,
     PRIMARY KEY (id_costo)
+);
+
+CREATE TABLE producto_por_registrar (
+    id_producto_por_registrar INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    id_producto INT UNSIGNED NOT NULL,
+    PRIMARY KEY (id_producto_por_registrar)
 );
 
 CREATE TABLE entrada_producto(
@@ -86,6 +92,8 @@ CREATE TABLE motivo_salida (
 ALTER TABLE producto
 ADD FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria),
 ADD FOREIGN KEY (id_unidad) REFERENCES unidad_de_medida(id_unidad);
+
+ALTER TABLE producto_por_registrar
 
 ALTER TABLE precio
 ADD FOREIGN KEY (id_producto) REFERENCES producto(id_producto);
