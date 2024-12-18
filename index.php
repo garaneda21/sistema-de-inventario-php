@@ -14,21 +14,17 @@ require_once "includes/dashboard/entradas_del_dia.php"
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/pantalla_de_carga.css">
-    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/pantalla_principal/dashboard.css">
 </head>
 
 <body>
 
-    <!-- Contenedor principal -->
     <div class="main-container">
-        <!-- Panel lateral -->
-        <?php require_once "barra_lateral.php" ?>
+        <?php require_once "elementos_ui/barra_lateral.php" ?>
 
-        <!-- Área de contenido principal -->
         <main class="content">
 
             <div class="dashboard">
-                <!-- Primera fila: 6 elementos en la cuadrícula -->
                 <div class="dashboard-row simple-info">
                     <div class="card-button verde">
                         Ventas del día<br>
@@ -56,7 +52,6 @@ require_once "includes/dashboard/entradas_del_dia.php"
                     </div>
                 </div>
 
-                <!-- Segunda fila: Elementos con 2 o 4 columnas de espacio -->
                 <div class="dashboard-row general-info">
                     <div class="info-card" style="grid-column: span 3;">
                         Ventas realizadas en el día
@@ -85,8 +80,6 @@ require_once "includes/dashboard/entradas_del_dia.php"
         <div class="loader"></div>
         <p>Cargando...</p>
     </div> -->
-
-    <!-- <script src="js/pantalla_de_carga.js"></script> -->
 </body>
 
 </html>

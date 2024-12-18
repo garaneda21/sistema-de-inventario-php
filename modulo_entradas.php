@@ -23,7 +23,7 @@ require_once "includes/modulo_entradas/lista_productos.php"
     <!-- Contenedor principal -->
     <div class="main-container">
         <!-- Panel lateral -->
-        <?php require_once "barra_lateral.php" ?>
+        <?php require_once "elementos_ui/barra_lateral.php" ?>
 
         <!-- Área de contenido principal -->
         <main class="content">
