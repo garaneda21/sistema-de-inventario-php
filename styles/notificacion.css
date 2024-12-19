@@ -1,0 +1,86 @@
+/* Contenedor de notificaciones */
+#notification-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none; /* Evita bloquear clics en otros elementos */
+}
+
+/* Notificación */
+.notification {
+    background-color: white; /* Verde para éxito */
+    color: black;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    pointer-events: all; /* Permite interacción con la notificación */
+    animation: slide-down 0.3s ease-out; /* Animación de entrada */
+    position: relative;
+}
+
+.notification .icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--verde);
+    margin-right: 8px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Botón de cerrar */
+.notification .close-btn {
+    background: none; /* Fondo transparente */
+    border: none;
+    color: black; /* Color negro */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto; /* Empuja la 'x' al borde derecho */
+}
+
+/* Barra de progreso */
+.notification .progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    background-color: var(--verde);
+    animation: progress 3s linear;
+    width: 100%;
+}
+
+/* Animación de entrada */
+@keyframes slide-down {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animación de progreso */
+@keyframes progress {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
+}
+

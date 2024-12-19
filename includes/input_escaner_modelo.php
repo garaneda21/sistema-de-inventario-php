@@ -16,6 +16,6 @@ function obtener_producto(object $pdo, string $codigo_de_barra) {
     $stmt->bindParam(":codigo_de_barra", $codigo_de_barra);
     $stmt->execute();
 
-    $producto_obtenido_por_escaner = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $producto_obtenido_por_escaner = $stmt->fetch(PDO::FETCH_ASSOC);
     return $producto_obtenido_por_escaner;
 }

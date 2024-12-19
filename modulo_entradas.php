@@ -1,5 +1,7 @@
 <?php
-require_once "includes/modulo_entradas/lista_productos.php"
+require_once "includes/config_session.php";
+require_once "includes/modulo_entradas/lista_productos.php";
+require_once "includes/input_escaner_vista.php";
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +18,7 @@ require_once "includes/modulo_entradas/lista_productos.php"
     <link rel="stylesheet" href="styles/cuadricula_de_productos.css">
     <link rel="stylesheet" href="styles/barra_lateral_de_productos.css">
     <link rel="stylesheet" href="styles/tablas_ingreso_producto.css">
+    <link rel="stylesheet" href="styles/notificacion.css">
 </head>
 
 <body>
@@ -91,21 +94,30 @@ require_once "includes/modulo_entradas/lista_productos.php"
 
     <form action="includes/input_escaner.php" method="get" id="formulario-escaner" hidden>
 
+        <?php 
+            datos_producto_obtenido_por_escaner();
+        ?>
 
-        <div id="datos-input-escaner" data-id_producto="" data-nombre="" data-unidad="" data-requiere_fecha_vencimiento=""></div>
         <input id="input-escaner" name="input_escaner" type="text">
     </form>
 
+    <div id="notification-container"></div>
 
 
     <script src="js/agregar_a_tabla_ingreso.js"></script>
     <script src="js/input_escaner.js"></script>
+    <script src="js/notificacion.js"></script>
+    
     <script>
         producto_obtenido_por_escaner = document.getElementById("datos-input-escaner");
         
-        console.log(producto_obtenido_por_escaner);
-        
+        const id_producto = producto_obtenido_por_escaner.dataset.id_producto;
+        const nombre = producto_obtenido_por_escaner.dataset.nombre;
+        const unidad = producto_obtenido_por_escaner.dataset.unidad;
+        const requiere_venc = producto_obtenido_por_escaner.dataset.requiere_fecha_vencimiento;
 
+        agregar_a_tabla(id_producto, nombre, unidad, requiere_venc);
+        showNotification("Producto escaneado exitosamente") 
     </script>
 </body>
 
