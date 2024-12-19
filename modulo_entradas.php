@@ -108,6 +108,17 @@ require_once "includes/input_escaner_vista.php";
     <script src="js/input_escaner.js"></script>
     <script src="js/notificacion.js"></script>
     
+    
+    <script>
+        if (sessionStorage.getItem('productos')) {
+            const productos = JSON.parse(sessionStorage.getItem('productos'));
+
+            for (const elemento in productos) {
+                producto = productos[elemento]
+                agregar_a_tabla(producto.id, producto.nombre, producto.unidad, producto.requiere_venc, true);
+            }
+        }
+    </script>
     <script>
         producto_obtenido_por_escaner = document.getElementById("datos-input-escaner");
         

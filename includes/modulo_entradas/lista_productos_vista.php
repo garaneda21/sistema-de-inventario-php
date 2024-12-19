@@ -26,3 +26,4 @@ function insertar_productos($productos) {
         ";
     }
 }
+

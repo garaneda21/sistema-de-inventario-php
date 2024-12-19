@@ -1,4 +1,4 @@
-function agregar_a_tabla(id, nombre, unidad, requiere_venc) {
+function agregar_a_tabla(id, nombre, unidad, requiere_venc, por_session = false) {
 
     const comprobar_fila = document.getElementById(id);
     if (comprobar_fila) {
@@ -48,7 +48,6 @@ function agregar_a_tabla(id, nombre, unidad, requiere_venc) {
     input_vencimiento.setAttribute('name', `productos[${id}][vencimiento]`);
     input_vencimiento.setAttribute('class', 'table-input');
     input_vencimiento.setAttribute('type', 'date');
-console.log(requiere_venc);
     if(requiere_venc) {
         input_vencimiento.setAttribute('required', '');
     } else {
@@ -62,7 +61,7 @@ console.log(requiere_venc);
     boton_quitar.textContent = 'X';
     boton_quitar.style.cursor = 'pointer';
     boton_quitar.onclick = function () {
-        nueva_fila.remove();
+        quitarFila(this, id);
     };
     boton_quitar.setAttribute('class', 'button-remove-row')
     celda_quitar.appendChild(boton_quitar);
@@ -76,4 +75,36 @@ console.log(requiere_venc);
 
     // Agregar la fila a la tabla lateral
     tableBody.appendChild(nueva_fila);
+    
+    // -------------------------------------------------
+    // ----- Guardar datos en cookies de la sesión -----
+    // -------------------------------------------------
+    
+    if (por_session) {
+        return;
+    }
+
+    // Recuperar los datos actuales de sessionStorage
+    let productos = JSON.parse(sessionStorage.getItem('productos')) || {};
+
+    // Agregar el nuevo producto
+    productos[id] = ({ id, nombre, unidad, requiere_venc });
+
+    // Guardar nuevamente en sessionStorage
+    sessionStorage.setItem('productos', JSON.stringify(productos));
+
+}
+
+// Función para quitar una fila
+function quitarFila(boton, id) {
+    const fila = boton.closest("tr");
+    fila.remove();
+
+    let productos = JSON.parse(sessionStorage.getItem('productos')) || {};
+
+    // eliminar el producto
+    delete productos[id];
+
+    // Guardar nuevamente en sessionStorage
+    sessionStorage.setItem('productos', JSON.stringify(productos));
 }
