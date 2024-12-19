@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 $productos = $_POST["productos"];
 
-var_dump($productos);
-
 try {
     require_once "../db.php";
     require_once "entrada_modelo.php";

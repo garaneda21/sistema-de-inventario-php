@@ -20,7 +20,7 @@ function insertar_productos($productos) {
         
         echo "
             <div class='product-item' onclick=\"agregar_a_tabla($id_producto, '$nombre_producto', '$nombre_unidad', $requiere_fecha_vencimiento);\">
-                <div class='product-name'> $nombre_producto</div>
+                <div class='product-name'>$nombre_producto</div>
                 <span class='stock'>Stock: $stock_actual $nombre_unidad</span>
             </div>
         ";

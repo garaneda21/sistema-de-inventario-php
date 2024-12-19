@@ -89,7 +89,24 @@ require_once "includes/modulo_entradas/lista_productos.php"
         </div>
     </div>
 
+    <form action="includes/input_escaner.php" method="get" id="formulario-escaner" hidden>
+
+
+        <div id="datos-input-escaner" data-id_producto="" data-nombre="" data-unidad="" data-requiere_fecha_vencimiento=""></div>
+        <input id="input-escaner" name="input_escaner" type="text">
+    </form>
+
+
+
     <script src="js/agregar_a_tabla_ingreso.js"></script>
+    <script src="js/input_escaner.js"></script>
+    <script>
+        producto_obtenido_por_escaner = document.getElementById("datos-input-escaner");
+        
+        console.log(producto_obtenido_por_escaner);
+        
+
+    </script>
 </body>
 
 </html>
