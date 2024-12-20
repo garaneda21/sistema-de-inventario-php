@@ -86,7 +86,7 @@ require_once "includes/input_escaner_vista.php";
                     </table>
 
                     <div class="form-footer">
-                        <button type="submit" class="button-submit">
+                        <button type="submit" class="button-submit" onclick="sessionStorage.removeItem('productos');">
                             <div class="icon icon-big">
                                 <img src="img/botones/completed.png" alt="">
                             </div>
@@ -135,7 +135,6 @@ require_once "includes/input_escaner_vista.php";
             const nombre = producto_obtenido_por_escaner.dataset.nombre;
             const unidad = producto_obtenido_por_escaner.dataset.unidad;
             const requiere_venc = producto_obtenido_por_escaner.dataset.requiere_fecha_vencimiento;
-
 
             agregar_a_tabla(id_producto, nombre, unidad, requiere_venc);
             showNotification("Producto escaneado exitosamente")
