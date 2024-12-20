@@ -1,4 +1,4 @@
-let codigoDeBarra = '';
+let barcode = '';
 let lastKeyTime = Date.now();
 
 document.addEventListener('keydown', (event) => {
@@ -13,10 +13,14 @@ document.addEventListener('keydown', (event) => {
 
     lastKeyTime = currentTime;
 
-    if (event.key === 'Enter') { // Código completo tras "Enter"
-        console.log(`Código escaneado: ${barcode}`);
-        // Aquí puedes añadir el código a tu lista
+    if (event.key === 'Enter' && barcode.length > 8) {
+        barcode = barcode.replace('Enter', '');
+        form = document.getElementById("formulario-escaner");
+
+        form.input_escaner.value = barcode
         barcode = ''; // Resetea el buffer
+
+        form.submit();
     }
 });
 
