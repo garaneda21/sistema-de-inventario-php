@@ -1,5 +1,4 @@
 const agregar_a_tabla = (contador, id_producto, id_entrada, nombre, unidad, precio, stock_actual_entrada) => {
-   
     
     const comprobar_fila = document.getElementById(`[${id_producto}][${id_entrada}]`);
     console.log(comprobar_fila);
@@ -55,10 +54,27 @@ const agregar_a_tabla = (contador, id_producto, id_entrada, nombre, unidad, prec
 
 
     tabla.appendChild(nuevaFila);
+
+    verificar_tabla_vacia();
 }
 
 // Función para quitar una fila
 function quitarFila(boton) {
     const fila = boton.closest("tr");
     fila.remove();
+
+    verificar_tabla_vacia();
+}
+
+// Función para verificar si la tabla está vacía
+function verificar_tabla_vacia() {
+    const tabla = document.getElementById("tabla-productos");
+    const mensaje = document.getElementById("mensaje-sin-productos");
+
+    // Si la tabla no tiene filas, mostramos el mensaje
+    if (tabla.rows.length === 0) {
+        mensaje.classList.add("visible");
+    } else {
+        mensaje.classList.remove("visible");
+    }
 }

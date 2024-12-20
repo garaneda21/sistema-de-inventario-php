@@ -16,6 +16,7 @@ require_once "includes/modulo_ventas/lista_productos.php"
     <link rel="stylesheet" href="styles/cuadricula_de_productos.css">
     <link rel="stylesheet" href="styles/barra_lateral_de_productos.css">
     <link rel="stylesheet" href="styles/tablas_venta_producto.css">
+    <link rel="stylesheet" href="styles/mensaje_sin_productos.css">
     <link rel="stylesheet" href="styles/modulo_ventas/modal_entradas.css">
 </head>
 
@@ -60,6 +61,8 @@ require_once "includes/modulo_ventas/lista_productos.php"
         <div class="sidebar-productos">
             <div class="formulario-de-tabla">
                 <form action="includes/modulo_ventas/venta.php" method="post">
+
+                    <?php require "elementos_ui/mensaje_sin_productos.html" ?>
 
                     <table class="table-adjusted">
                         <thead>

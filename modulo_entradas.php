@@ -18,6 +18,7 @@ require_once "includes/input_escaner_vista.php";
     <link rel="stylesheet" href="styles/cuadricula_de_productos.css">
     <link rel="stylesheet" href="styles/barra_lateral_de_productos.css">
     <link rel="stylesheet" href="styles/tablas_ingreso_producto.css">
+    <link rel="stylesheet" href="styles/mensaje_sin_productos.css">
     <link rel="stylesheet" href="styles/notificacion.css">
 </head>
 
@@ -62,7 +63,7 @@ require_once "includes/input_escaner_vista.php";
 
                 <form action="includes/modulo_entradas/entrada.php" method="post">
 
-                    <?php require "elementos_ui/mensaje-sin-productos.html" ?>
+                    <?php require "elementos_ui/mensaje_sin_productos.html" ?>
 
                     <table class="table-adjusted">
                         <thead>
