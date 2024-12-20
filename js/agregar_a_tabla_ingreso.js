@@ -48,7 +48,7 @@ function agregar_a_tabla(id, nombre, unidad, requiere_venc, por_session = false)
     input_vencimiento.setAttribute('name', `productos[${id}][vencimiento]`);
     input_vencimiento.setAttribute('class', 'table-input');
     input_vencimiento.setAttribute('type', 'date');
-    if(requiere_venc) {
+    if(requiere_venc != 0) {
         input_vencimiento.setAttribute('required', '');
     } else {
         input_vencimiento.setAttribute('hidden', '');
@@ -76,6 +76,8 @@ function agregar_a_tabla(id, nombre, unidad, requiere_venc, por_session = false)
     // Agregar la fila a la tabla lateral
     tableBody.appendChild(nueva_fila);
     
+    verificar_tabla_vacia();
+
     // -------------------------------------------------
     // ----- Guardar datos en cookies de la sesión -----
     // -------------------------------------------------
@@ -107,4 +109,19 @@ function quitarFila(boton, id) {
 
     // Guardar nuevamente en sessionStorage
     sessionStorage.setItem('productos', JSON.stringify(productos));
+
+    verificar_tabla_vacia();
+}
+
+// Función para verificar si la tabla está vacía
+function verificar_tabla_vacia() {
+    const tabla = document.getElementById("tabla-productos");
+    const mensaje = document.getElementById("mensaje-sin-productos");
+
+    // Si la tabla no tiene filas, mostramos el mensaje
+    if (tabla.rows.length === 0) {
+        mensaje.classList.add("visible");
+    } else {
+        mensaje.classList.remove("visible");
+    }
 }

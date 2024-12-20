@@ -17,6 +17,7 @@ require_once "includes/modulo_productos/modal_productos.php"
     <link rel="stylesheet" href="styles/modulo_ventas/busqueda.css">
     <link rel="stylesheet" href="styles/modulo_productos/modal_ingreso_producto.css">
     <link rel="stylesheet" href="styles/modulo_productos/modal_de_exito.css">
+    <link rel="stylesheet" href="styles/notificacion.css">
     <!-- <link rel="stylesheet" href="styles/formulario.css"> -->
 </head>
 
@@ -47,7 +48,10 @@ require_once "includes/modulo_productos/modal_productos.php"
             </form>
 
             <!-- Botón para abrir el modal -->
-            <button id="open-modal-btn" class="button-submit">Ingresar nuevo producto</button>
+            <button id="open-modal-btn" class="button-submit">
+                <img class="icon" src="img/botones/add.png" alt="icono de añadir nuevo producto">
+                Añadir nuevo producto
+            </button>
 
             <!-- Tabla de productos -->
             <?php
@@ -118,18 +122,19 @@ require_once "includes/modulo_productos/modal_productos.php"
 
         </main>
 
-        <!-- Modal de Éxito -->
-        <div id="success-modal" class="modal-success" style="display: none;">
-            <div class="modal-success-content">
-                <p>¡Producto ingresado exitosamente!</p>
-            </div>
-        </div>
+        <!-- Notificación de Éxito -->
+        <div id="notification-container"></div>
 
     </div>
 
 
+    <script src="js/notificacion.js"></script>
     <script src="js/modulo_productos/modal.js"></script>
-    <script src="js/modulo_productos/modal_de_exito.js"></script>
+    <script>
+        if (window.location.search.includes('ingresar_producto=exito')) {
+            showNotification("Nuevo producto ingresado con éxito");
+        }
+    </script>
 </body>
 
 </html>
