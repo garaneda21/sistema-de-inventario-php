@@ -1,7 +1,6 @@
-const agregar_a_tabla = (contador, id_producto, id_entrada, nombre, unidad, precio, stock_actual_entrada) => {
+const agregar_a_tabla = (id, nombre, unidad, precio, stock_actual, por_session = false) => {
     
-    const comprobar_fila = document.getElementById(`[${id_producto}][${id_entrada}]`);
-    console.log(comprobar_fila);
+    const comprobar_fila = document.getElementById(id);
     if (comprobar_fila) {
         return; // Si existe el elemento no ejecutar funcion
     } 
@@ -9,18 +8,11 @@ const agregar_a_tabla = (contador, id_producto, id_entrada, nombre, unidad, prec
     const tabla = document.getElementById("tabla-productos")
 
     const nuevaFila = document.createElement("tr");
-    nuevaFila.setAttribute("id", `[${id_producto}][${id_entrada}]`);
-    nuevaFila.dataset.id_producto = id_producto;
-    nuevaFila.dataset.id_producto = id_entrada;
-
+    nuevaFila.setAttribute("id", id);
 
     nuevaFila.innerHTML = `
         <td>
-            <input type="hidden" name="productos[${id_producto}][${id_entrada}][id_producto]" value="${id_producto}" required>
-            <input type="hidden" name="productos[${id_producto}][${id_entrada}][id_entrada]" value="${id_entrada}" required>
-            ${contador}
-        </td>
-        <td>
+            <input type="hidden" name="productos[${id}][id_producto]" value="${id}" required>
             ${nombre}
         </td>
     `
@@ -28,13 +20,13 @@ const agregar_a_tabla = (contador, id_producto, id_entrada, nombre, unidad, prec
     if (unidad !== "Unidad") {
         nuevaFila.innerHTML += `
             <td>
-                <input class="table-input" type="text" name="productos[${id_producto}][${id_entrada}][cantidad]" value="1" required> 
+                <input class="table-input" type="text" name="productos[${id}][cantidad]" value="1" required> 
             </td>
         `
     } else {
         nuevaFila.innerHTML += `
             <td>
-                <input class="table-input" type="number" min=1 max=${stock_actual_entrada} name="productos[${id_producto}][${id_entrada}][cantidad]" value="1" required>
+                <input class="table-input" type="number" min=1 max=${stock_actual} name="productos[${id}][cantidad]" value="1" required>
             </td>
         `
     }
@@ -44,11 +36,11 @@ const agregar_a_tabla = (contador, id_producto, id_entrada, nombre, unidad, prec
             ${unidad}
         </td>
         <td>
-            <input type="hidden" name="productos[${id_producto}][${id_entrada}][precio]" value="${precio}">
+            <input type="hidden" name="productos[${id}][precio]" value="${precio}">
             $${precio}
         </td>
         <td>
-            <button type="button" class="button-remove-row" onclick="quitarFila(this)">&times;</button>
+            <button type="button" class="button-remove-row" onclick="quitarFila(this, ${id})">&times;</button>
         </td>
     `
 
@@ -56,12 +48,38 @@ const agregar_a_tabla = (contador, id_producto, id_entrada, nombre, unidad, prec
     tabla.appendChild(nuevaFila);
 
     verificar_tabla_vacia();
+
+    // -------------------------------------------------
+    // ----- Guardar datos en la sesión -----
+    // -------------------------------------------------
+    
+    if (por_session) {
+        return;
+    }
+
+    // Recuperar los datos actuales de sessionStorage
+    let productos = JSON.parse(sessionStorage.getItem('productos_a_vender')) || {};
+
+    // Agregar el nuevo producto
+    productos[id] = ({ id, nombre, unidad, precio, stock_actual });
+
+    // Guardar nuevamente en sessionStorage
+    sessionStorage.setItem('productos_a_vender', JSON.stringify(productos));
+
 }
 
 // Función para quitar una fila
-function quitarFila(boton) {
+function quitarFila(boton, id) {
     const fila = boton.closest("tr");
     fila.remove();
+
+    let productos = JSON.parse(sessionStorage.getItem('productos_a_vender')) || {};
+
+    // eliminar el producto
+    delete productos[id];
+
+    // Guardar nuevamente en sessionStorage
+    sessionStorage.setItem('productos_a_vender', JSON.stringify(productos));
 
     verificar_tabla_vacia();
 }

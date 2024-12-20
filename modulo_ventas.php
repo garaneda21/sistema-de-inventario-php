@@ -1,5 +1,7 @@
 <?php
-require_once "includes/modulo_ventas/lista_productos.php"
+require_once "includes/config_session.php";
+require_once "includes/modulo_ventas/lista_productos.php";
+require_once "includes/input_escaner_vista.php";
 ?>
 
 <!DOCTYPE html>
@@ -38,12 +40,12 @@ require_once "includes/modulo_ventas/lista_productos.php"
                 </div>
 
                 
-                <!-- <div class="pagination-container">
+                <div class="pagination-container">
                     <button type="submit" name="pagina" value="1" class="pagination-button">1</button>
                     <button type="submit" name="pagina" value="2" class="pagination-button">2</button>
                     <button type="submit" name="pagina" value="3" class="pagination-button">3</button>
                     
-                </div> -->
+                </div>
             </form>
 
 
@@ -67,7 +69,6 @@ require_once "includes/modulo_ventas/lista_productos.php"
                     <table class="table-adjusted">
                         <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Producto</th>
                                 <th>Cantidad</th>
                                 <th>Unidad</th>
@@ -121,10 +122,48 @@ require_once "includes/modulo_ventas/lista_productos.php"
 
 
 
+    <!-- Formulario oculto para escaner -->
+        <form action="includes/input_escaner.php" method="get" id="formulario-escaner" hidden>
+
+        <?php
+        datos_producto_obtenido_por_escaner();
+        ?>
+
+        <input id="input-escaner" name="input_escaner" type="text">
+        <input name="modulo_origen" type="text" value='<?=$_SERVER["PHP_SELF"]?>'>
+    </form>
+
 
 
     <script src="js/agregar_a_tabla_venta.js"></script>
     <script src="js/agregar_a_modal_venta.js"></script>
+    <script src="js/input_escaner.js"></script>
+    <script src="js/notificacion.js"></script>
+
+    <script>
+        if (sessionStorage.getItem('productos_a_vender')) {
+            const productos = JSON.parse(sessionStorage.getItem('productos_a_vender'));
+
+            for (const key in productos) {
+                producto = productos[key];
+                agregar_a_tabla(producto.id, producto.nombre, producto.unidad, producto.precio, true);
+            }
+        }
+    </script>
+    <script>
+        producto_obtenido_por_escaner = document.getElementById("datos-input-escaner");
+
+        if (producto_obtenido_por_escaner) {
+            const id_producto = producto_obtenido_por_escaner.dataset.id_producto;
+            const nombre = producto_obtenido_por_escaner.dataset.nombre;
+            const stock_actual = producto_obtenido_por_escaner.dataset.stock_actual;
+            const unidad = producto_obtenido_por_escaner.dataset.unidad;
+            const precio = producto_obtenido_por_escaner.dataset.precio;
+
+            agregar_a_tabla(id_producto, nombre, unidad, precio, stock_actual);
+            showNotification("Producto escaneado exitosamente")
+        }
+    </script>
 </body>
 
 </html>

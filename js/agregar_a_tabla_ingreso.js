@@ -9,7 +9,7 @@ function agregar_a_tabla(id, nombre, unidad, requiere_venc, por_session = false)
 
     // Crear una fila para el producto
     const nueva_fila = document.createElement('tr');
-    nueva_fila.setAttribute('id', `${id}`);
+    nueva_fila.setAttribute('id', id);
 
     // Texto del nombre con input oculto con id del producto
     const celda_nombre = document.createElement('td');
@@ -79,7 +79,7 @@ function agregar_a_tabla(id, nombre, unidad, requiere_venc, por_session = false)
     verificar_tabla_vacia();
 
     // -------------------------------------------------
-    // ----- Guardar datos en cookies de la sesión -----
+    // ----- Guardar datos en la sesión -----
     // -------------------------------------------------
     
     if (por_session) {

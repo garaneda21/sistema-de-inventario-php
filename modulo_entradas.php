@@ -95,6 +95,9 @@ require_once "includes/input_escaner_vista.php";
         </div>
     </div>
 
+
+    
+    <!-- Formulario oculto para escaner -->
     <form action="includes/input_escaner.php" method="get" id="formulario-escaner" hidden>
 
         <?php
@@ -102,7 +105,10 @@ require_once "includes/input_escaner_vista.php";
         ?>
 
         <input id="input-escaner" name="input_escaner" type="text">
+        <input name="modulo_origen" type="text" value='<?=$_SERVER["PHP_SELF"]?>'>
     </form>
+
+
 
     <div id="notification-container"></div>
 

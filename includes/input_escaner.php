@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 $codigo_de_barra = $_GET["input_escaner"] ?? null;
+$modulo_origen = $_GET["modulo_origen"];
 
 try {
     require_once "db.php";
@@ -13,13 +14,11 @@ try {
 
     $producto_obtenido_por_escaner = obtener_producto($pdo, $codigo_de_barra);
 
-    //require_once 'config_session.php';
-
-    session_start();
+    require_once 'config_session.php';
 
     $_SESSION["producto_obtenido_por_escaner"] = $producto_obtenido_por_escaner;
     
-    header("Location: ../modulo_entradas.php");
+    header("Location: $modulo_origen");
     die();
 
 } catch (PDOException $e) {
