@@ -14,11 +14,7 @@ function insertar_productos($productos)
             'nombre_unidad'     => $nombre_unidad,
             'precio'            => $precio,
             'costo'             => $costo,
-            'entradas'          => $entradas
         ] = $producto;
-
-        $cantidad_entradas = sizeof($entradas);
-        $jsonEntradas = htmlspecialchars(json_encode($entradas));
 
         echo "
             <div class='product-item' onclick=\"agregar_a_tabla($id_producto, '$nombre_producto', '$nombre_unidad', $precio, $stock_actual);\">

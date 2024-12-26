@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 declare(strict_types=1);
 
@@ -20,29 +20,45 @@ try {
     $id_salida = (int) registrar_salida($pdo);
 
     foreach ($productos as $producto) {
-        $salida_total = 0.0;
-        $id_producto;
 
-        foreach ($producto as $lote) {
+        [
+            'id_producto' => $id_producto,
+            'cantidad' => $cantidad,
+            // 'precio' => $precio
+        ] = $producto;
+
+        $id_producto = (int) $id_producto;
+        $cantidad = (float) $cantidad;
+        $salida_total = $cantidad;
+
+        $lotes = obtener_entradas_producto($pdo, $id_producto);
+
+        registrar_salida_de_producto($pdo, $id_producto, $id_salida, $cantidad);
+
+        foreach ($lotes as $lote) {
+
             [
-                'id_producto' => $id_producto,
                 'id_entrada' => $id_entrada,
-                'cantidad' => $cantidad,
-                'precio' => $precio
+                'stock_actual_entrada' => $stock_actual_entrada,
+                'fecha_vencimiento' => $fecha_venc
             ] = $lote;
 
-            
-            $id_producto = (int) $id_producto;
             $id_entrada = (int) $id_entrada;
-            $cantidad = (float) $cantidad;
-            
-            actualizar_lote($pdo, $id_producto, $id_entrada, $cantidad);
-            
-            $salida_total += $cantidad;
-        }
+            $stock_actual_entrada = (float) $stock_actual_entrada;
 
-        registrar_salida_de_producto($pdo, $id_producto, $id_salida, $salida_total);
+            //           10              25
+            if($stock_actual_entrada < $cantidad) {
+                actualizar_lote($pdo, $id_producto, $id_entrada, $stock_actual_entrada);
+                $cantidad -= $stock_actual_entrada;
+            } else {
+                actualizar_lote($pdo, $id_producto, $id_entrada, $cantidad);
+                $cantidad = 0;
+                break;
+            }
+        }
     }
+
+    actualizar_cantidad_de_productos($pdo, $id_producto, $id_salida, $salida_total);
 
     $pdo = null;
     $stmt = null;
@@ -51,3 +67,4 @@ try {
 } catch (PDOException $e) {
     die("Fallo al registrar salida: " . $e->getMessage());
 }
+
