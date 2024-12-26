@@ -34,4 +34,11 @@
         </div>
         <p>Productos</p>
     </a>
+
+    <a href="modulo_productos_pendientes.php" class="sidebar-btn">
+        <div class="icon icon-inv">
+            <img src="img/botones/box.png" alt="Módulo de Productos">
+        </div>
+        <p>Pendientes</p>
+    </a>
 </aside>

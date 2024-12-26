@@ -1,0 +1,24 @@
+.mensaje-sin-productos {
+    display: none;  /* Se oculta por defecto */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: darkgray;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 24px;
+    text-align: center;
+    width: 60%;
+}
+
+.mensaje-sin-productos.visible {
+    display: block;  /* Se muestra cuando tiene la clase "visible" */
+}
+
+.mensaje-sin-productos svg {
+  margin: 50px;
+  width: 50px;
+  height: 50px;
+  fill: darkgray;
+}

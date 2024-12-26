@@ -90,7 +90,7 @@ CREATE TABLE motivo_salida (
 -- DECLARACIÓN DE FK'S
 
 ALTER TABLE producto
-ADD FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria),
+-- ADD FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria),
 ADD FOREIGN KEY (id_unidad) REFERENCES unidad_de_medida(id_unidad);
 
 ALTER TABLE producto_por_registrar
