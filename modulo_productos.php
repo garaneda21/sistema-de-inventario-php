@@ -1,6 +1,5 @@
 <?php
 require_once "includes/modulo_productos/tabla_productos.php";
-require_once "includes/modulo_productos/modal_productos.php"
 ?>
 
 <!DOCTYPE html>
@@ -91,9 +90,8 @@ require_once "includes/modulo_productos/modal_productos.php"
                                 <label for="unit-measure" class="modal-label">Unidad de Medida:</label>
                                 <select id="unit-measure" name="unidad_de_medida" class="modal-input" required>
                                     <option value="">Seleccione una unidad de medida para el producto...</option>
-                                    <?php
-                                    datos_unidad($unidades_de_medida);
-                                    ?>
+                                    <option value="1">Unidad</option>
+                                    <option value="2">Kilo</option>
                                 </select>
                             </div>
                             <div class="modal-row">

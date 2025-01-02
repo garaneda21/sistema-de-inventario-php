@@ -116,38 +116,22 @@ require_once "includes/input_escaner_vista.php";
 
             <!-- Cuerpo del modal -->
             <div class="modal-body">
-                <form id="product-form" action="includes/modulo_productos/ingresar_producto.php" method="post">
+                <form id="product-form" action="includes/modulo_productos_pendientes/ingresar_producto_pendiente.php" method="post">
                     <div class="modal-row">
-                        <label for="barcode" class="modal-label">Código de Barras (puede quedar vacío):</label>
+                        <label for="barcode" class="modal-label">Código de Barras:</label>
                         <input type="text" id="barcode" name="codigo_de_barra" class="modal-input" placeholder="Usar escaner aquí...">
                     </div>
                     <div class="modal-row">
                         <label for="product-name" class="modal-label">Nombre del Producto:</label>
-                        <input type="text" id="product-name" name="nombre_producto" class="modal-input" placeholder="Empanada de queso" required>
+                        <input type="text" id="product-name" name="nombre_producto" class="modal-input" placeholder="Nombre del producto..." required>
                     </div>
                     <div class="modal-row">
-
-                        <label for="product-cost" class="modal-label">Precio de compra:</label>
-                        <input type="number" id="product-cost" name="costo" class="modal-input" min="0" placeholder="$1500" required>
-                    </div>
-                    <div class="modal-row">
-                        <label for="product-price" class="modal-label">Precio de venta:</label>
-                        <input type="number" id="product-price" name="precio" class="modal-input" min="0" placeholder="$2000" required>
-                    </div>
-                    <div class="modal-row">
-                        <label for="min-stock" class="modal-label">Stock Mínimo</label>
-                        <input type="number" id="min-stock" name="stock_minimo" min="0" class="modal-input" required>
-                    </div>
-                    <div class="modal-row">
-                        <label for="requires-expiry" class="modal-label">Requiere Fecha de Vencimiento:</label>
-                        <select id="requires-expiry" name="requiere_fecha_vencimiento" class="modal-input" required>
-                            <option value="1">Sí</option>
-                            <option value="0">No</option>
+                        <label for="unit-measure" class="modal-label">Unidad de Medida:</label>
+                        <select id="unit-measure" name="unidad_de_medida" class="modal-input" required>
+                            <option value="">Seleccione una unidad de medida para el producto...</option>
+                            <option value="1">Unidad</option>
+                            <option value="2">Kilo</option>
                         </select>
-                    </div>
-                    <div class="modal-row" id="expiry-time-container" hidden>
-                        <label for="expiry-time" class="modal-label">Tiempo para Advertencia de Vencimiento (días):</label>
-                        <input type="number" id="expiry-time" name="tiempo_alerta_vencimiento" class="modal-input">
                     </div>
                     <div class="modal-row">
                         <button type="submit" class="modal-submit">Guardar Producto</button>

@@ -66,6 +66,7 @@ aside .sidebar-btn {
     gap: 10px;
     background-color: #384c63;
     color: white;
+    margin: 5px;
     padding: 10px 15px;
     border-radius: 8px;
     width: 88%;
