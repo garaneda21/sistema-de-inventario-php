@@ -108,7 +108,7 @@ require_once "includes/input_escaner_vista.php";
     <div id="productModal" class="modal">
         <div class="modal-content">
             <div class="modal-title">
-                Ingresar Nuevo Producto
+                Producto no encontrado, Ingrese datos para continuar...
             </div>
 
             <!-- Cerrar botón -->
@@ -133,6 +133,9 @@ require_once "includes/input_escaner_vista.php";
                             <option value="2">Kilo</option>
                         </select>
                     </div>
+
+                    <input name="modulo_origen" type="text" value='<?=$_SERVER["PHP_SELF"]?>' hidden>
+
                     <div class="modal-row">
                         <button type="submit" class="modal-submit">Guardar Producto</button>
                     </div>

@@ -3,7 +3,9 @@
 declare(strict_types=1);
 
 $nombre_producto = $_POST["nombre_producto"];
+$unidad_de_medida = (int) $_POST["unidad_de_medida"];
 $codigo_de_barra = $_POST["codigo_de_barra"];
+$modulo_origen = $_POST["modulo_origen"];
 
 try {
     require_once "../db.php";
@@ -16,13 +18,13 @@ try {
         - Producto que ya existe    
     */
 
-    ingresar_producto($pdo, $nombre_producto, $costo, $precio, $unidad_de_medida, $stock_minimo, $codigo_de_barra, $requiere_fecha_vencimiento, $tiempo_alerta_vencimiento);
+    ingresar_producto($pdo, $nombre_producto, $unidad_de_medida, $codigo_de_barra);
 
     // Cerrar conexion con base de datos (hacer siempre);
     $pdo = null;
     $stmt = null;
 
-    header("Location: ../../modulo_productos.php?ingresar_producto=exito");
+    header("Location: $modulo_origen?ingresar_producto=exito");
 } catch (PDOException $e) {
     die("Fallo al ingresar producto: " . $e->getMessage());
 }
