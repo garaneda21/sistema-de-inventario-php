@@ -10,6 +10,7 @@ function lista_productos_pendientes(array $productos) {
 
     foreach ($productos as $producto) {
         [
+            'id_producto'     => $id_producto,
             'nombre_producto' => $nombre_producto,
             'codigo_de_barra' => $codigo_de_barra,
             'nombre_unidad'   => $nombre_unidad
@@ -22,7 +23,7 @@ function lista_productos_pendientes(array $productos) {
                 <p>Unidad: $nombre_unidad</p>
                 <p>$codigo_de_barra</p>
             </div>
-            <button onclick=\"alert('Abrir modal para producto: $nombre_producto')\">Editar producto</button>
+            <button onclick=\"mostrar_modal_actualizar_producto('$id_producto', '$codigo_de_barra', '$nombre_producto');\">Editar producto</button>
         </div>
         ";
     }         

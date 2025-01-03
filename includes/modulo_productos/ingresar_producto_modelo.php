@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 function ingresar_producto(object $pdo, string $nombre_producto, int $costo, int $precio, int $id_unidad, int $stock_minimo, string $codigo_de_barra, int $requiere_fecha_vencimiento, int $tiempo_alerta_vencimiento) {
-    var_dump($codigo_de_barra);
     // Insertar Producto
     $consulta = "INSERT INTO producto (
             nombre_producto, 

@@ -33,7 +33,7 @@ require_once "includes/input_escaner_vista.php";
         <main class="content">
 
             <!-- Botón para abrir el modal -->
-            <button id="open-modal-btn" class="button-submit">
+            <button class="button-submit" onclick="mostrar_modal_producto_no_encontrado();">
                 <img class="icon" src="img/botones/add.png" alt="icono de añadir nuevo producto">
                 Añadir nuevo producto
             </button>
@@ -157,10 +157,6 @@ require_once "includes/input_escaner_vista.php";
 
     <div id="notification-container"></div>
 
-    <!-- prueba -->
-    <script src="js/modulo_productos/modal.js"></script>
-
-
     <script src="js/agregar_a_tabla_venta.js"></script>
     <script src="js/input_escaner.js"></script>
     <script src="js/modal_producto_pendiente.js"></script>
@@ -183,11 +179,12 @@ require_once "includes/input_escaner_vista.php";
             const id_producto = producto_obtenido_por_escaner.dataset.id_producto;
             const nombre = producto_obtenido_por_escaner.dataset.nombre;
             const stock_actual = producto_obtenido_por_escaner.dataset.stock_actual;
+            const codigo_de_barra = producto_obtenido_por_escaner.dataset.codigo_de_barra;
             const unidad = producto_obtenido_por_escaner.dataset.unidad;
             const precio = producto_obtenido_por_escaner.dataset.precio;
 
             if (!id_producto) {
-                mostrar_modal_producto_no_encontrado();
+                mostrar_modal_producto_no_encontrado(codigo_de_barra);
             } else {
                 agregar_a_tabla(id_producto, nombre, unidad, precio, stock_actual);
                 showNotification("Producto escaneado exitosamente")

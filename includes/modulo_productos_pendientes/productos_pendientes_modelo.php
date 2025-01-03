@@ -6,6 +6,7 @@ function obtener_productos_pendientes(object $pdo) {
     // realizar consulta de forma segura
     $consulta = "
         SELECT
+            p.id_producto,
             p.nombre_producto,
             p.codigo_de_barra,
             u.nombre_unidad

@@ -16,6 +16,8 @@ try {
 
     require_once 'config_session.php';
 
+    $producto_obtenido_por_escaner["codigo_de_barra"] = $codigo_de_barra;
+
     $_SESSION["producto_obtenido_por_escaner"] = $producto_obtenido_por_escaner;
     
     header("Location: $modulo_origen");
