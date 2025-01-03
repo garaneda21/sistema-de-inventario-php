@@ -7,9 +7,10 @@ function ingresar_producto(object $pdo, string $nombre_producto, int $unidad_de_
     $consulta = "INSERT INTO producto (
             nombre_producto, 
             codigo_de_barra, 
+            por_registrar,
             id_unidad
         ) VALUES
-        (:nombre_producto, :codigo_de_barra, :id_unidad);
+        (:nombre_producto, :codigo_de_barra, 1, :id_unidad);
     ";
 
     $stmt = $pdo->prepare($consulta);

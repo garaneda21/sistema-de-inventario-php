@@ -40,5 +40,6 @@
             <img src="img/botones/box.png" alt="Módulo de Productos">
         </div>
         <p>Pendientes</p>
+        <span><?php require_once "includes/modulo_productos_pendientes/contar_productos_pendientes.php"; ?></span>
     </a>
 </aside>

@@ -1,5 +1,5 @@
 <?php
-
+require_once "includes/modulo_productos_pendientes/productos_pendientes.php"
 ?>
 
 <!DOCTYPE html>
@@ -42,13 +42,13 @@
 
         .card-content h3 {
             margin: 0;
-            font-size: 18px;
+            font-size: 24px;
             color: #333;
         }
 
         .card-content p {
             margin: 0;
-            font-size: 14px;
+            font-size: 18px;
             color: #666;
         }
 
@@ -64,6 +64,13 @@
 
         .card button:hover {
             background-color: #0056b3;
+        }
+
+        .empty-message {
+          font-size: 30px;
+          color: gray;
+          text-align: center;
+          margin-top: 20px;
         }
 
         @media (max-width: 600px) {
@@ -90,30 +97,10 @@
 
                 <h1>Terminar de ingresar productos</h1>
 
-                <div class="card">
-                    <div class="card-content">
-                        <h3>Producto A</h3>
-                        <p>Precio: $10.00</p>
-                        <p>Unidad: Unidad</p>
-                    </div>
-                    <button onclick="alert('Abrir modal para producto: Producto A')">Editar producto</button>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <h3>Producto B</h3>
-                        <p>Precio: $20.00</p>
-                        <p>Unidad: Kg</p>
-                    </div>
-                    <button onclick="alert('Abrir modal para producto: Producto B')">Editar producto</button>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <h3>Producto C</h3>
-                        <p>Precio: $15.00</p>
-                        <p>Unidad: Litro</p>
-                    </div>
-                    <button onclick="alert('Abrir modal para producto: Producto C')">Editar producto</button>
-                </div>
+                <?php
+                lista_productos_pendientes($productos);
+                ?>
+
             </div>
 
         </main>

@@ -20,9 +20,10 @@ try {
 
     ingresar_producto($pdo, $nombre_producto, $unidad_de_medida, $codigo_de_barra);
 
-    // Cerrar conexion con base de datos (hacer siempre);
     $pdo = null;
     $stmt = null;
+
+    // añadir productos a la sessión
 
     header("Location: $modulo_origen?ingresar_producto=exito");
 } catch (PDOException $e) {
