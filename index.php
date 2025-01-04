@@ -1,5 +1,6 @@
 <?php
-require_once "includes/dashboard/entradas_del_dia.php"
+require_once "includes/dashboard/entradas_del_dia.php";
+
 ?>
 
 
@@ -15,6 +16,54 @@ require_once "includes/dashboard/entradas_del_dia.php"
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/pantalla_de_carga.css">
     <link rel="stylesheet" href="styles/pantalla_principal/dashboard.css">
+    <style>
+        /* Filas principales */
+        .row {
+            padding: 8px 0;
+        }
+
+        /* Títulos de las filas principales */
+        .row h4 {
+            font-weight: bold;
+            margin: 4px;
+        }
+
+        /* Estilo de las subtarjetas */
+        .sub-card {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: var(--azul);
+            border-radius: 8px;
+            border: 1px solid #156ACF;
+            overflow: hidden;
+        }
+
+        /* Estilo de las filas dentro de las subtarjetas */
+        .sub-row {
+            display: flex;
+            align-items: center;
+            padding: 4px;  border-bottom: 1px solid #156ACF; /* Esta es la línea separadora */
+            font-size: 0.9rem;
+        }
+
+        .sub-row:last-child {
+            border-bottom: none;
+        }
+
+        /* Elementos dentro de las subtarjetas */
+        .sub-element {
+            flex: 2;
+            color: white;
+            font-weight: bold;
+        }
+
+        .data {
+            flex: 1;
+            text-align: center;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,11 +77,11 @@ require_once "includes/dashboard/entradas_del_dia.php"
                 <div class="dashboard-row simple-info">
                     <div class="card-button verde">
                         Ventas del día<br>
-                        <span>123</span>
+                        <span><?= $salidas_del_dia ?></span>
                     </div>
                     <div class="card-button verde">
                         Ingresos del día<br>
-                        <span>$50000</span>
+                        <span>$<?= $ingresos_del_dia ?></span>
                     </div>
                     <div class="card-button azul">
                         Entradas del día<br>
@@ -40,15 +89,15 @@ require_once "includes/dashboard/entradas_del_dia.php"
                     </div>
                     <div class="card-button rosa">
                         Productos en bajo stock<br>
-                        <span>20</span>
+                        <span><?= $productos_en_bajo_stock ?></span>
                     </div>
                     <div class="card-button naranja">
                         Productos agotados<br>
-                        <span>5</span>
+                        <span><?= $productos_agotados ?></span>
                     </div>
                     <div class="card-button rojo">
-                        Productos por vencer<br>
-                        <span>3</span>
+                        Lotes por vencer<br>
+                        <span><?= $lotes_por_vencer ?></span>
                     </div>
                 </div>
 
@@ -58,6 +107,35 @@ require_once "includes/dashboard/entradas_del_dia.php"
                     </div>
                     <div class="info-card" style="grid-column: span 3;">
                         Entradas realizadas en el día
+
+                        <?php mostar_entradas_realizadas($entradas_realizadas_en_el_dia); ?>
+
+                        <!-- <section class="row">
+                            <h4>Elemento 1</h4>
+                            <ul class="sub-card">
+                                <li class="sub-row">
+                                    <span class="sub-element">Hola 1</span>
+                                    <span class="data">Dato</span>
+                                    <span class="data">Dato</span>
+                                </li>
+                                <li class="sub-row">
+                                    <span class="sub-element">Hola 2</span>
+                                    <span class="data">Dato</span>
+                                    <span class="data">Dato</span>
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="row">
+                            <h4>Elemento 2</h4>
+                            <ul class="sub-card">
+                                <li class="sub-row">
+                                    <span class="sub-element">Hola 1</span>
+                                    <span class="data">Dato</span>
+                                    <span class="data">Dato</span>
+                                </li>
+                            </ul>
+                        </section> -->
+
                     </div>
                     <div class="info-card" style="grid-column: span 3;">
                         Productos próximos a vencer
