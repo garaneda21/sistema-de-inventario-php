@@ -17,12 +17,13 @@ CREATE TABLE producto (
     id_producto INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nombre_producto VARCHAR(250) NOT NULL,
     total_vendidos BIGINT UNSIGNED DEFAULT 0, 
-    stock_minimo INT UNSIGNED NOT NULL,
+    stock_minimo INT UNSIGNED DEFAULT 10,
     stock_actual DECIMAL(20,2) NOT NULL DEFAULT 0,
     codigo_de_barra VARCHAR(20),
-    tiempo_alerta_vencimiento INT UNSIGNED,
+    tiempo_alerta_vencimiento INT UNSIGNED DEFAULT 15,
     activo CHAR(1) NOT NULL DEFAULT 1,
     requiere_fecha_vencimiento CHAR(1) NOT NULL DEFAULT 1,
+    por_registrar CHAR(1) NOT NULL DEFAULT 0,
     -- id_categoria INT UNSIGNED NOT NULL,
     id_unidad INT UNSIGNED NOT NULL,
     PRIMARY KEY (id_producto)
@@ -44,12 +45,6 @@ CREATE TABLE costo (
     fecha_fin_costo DATETIME,
     id_producto INT UNSIGNED NOT NULL,
     PRIMARY KEY (id_costo)
-);
-
-CREATE TABLE producto_por_registrar (
-    id_producto_por_registrar INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    id_producto INT UNSIGNED NOT NULL,
-    PRIMARY KEY (id_producto_por_registrar)
 );
 
 CREATE TABLE entrada_producto(
@@ -92,9 +87,6 @@ CREATE TABLE motivo_salida (
 ALTER TABLE producto
 -- ADD FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria),
 ADD FOREIGN KEY (id_unidad) REFERENCES unidad_de_medida(id_unidad);
-
-ALTER TABLE producto_por_registrar
-ADD FOREIGN KEY (id_producto) REFERENCES producto(id_producto);
 
 ALTER TABLE precio
 ADD FOREIGN KEY (id_producto) REFERENCES producto(id_producto);

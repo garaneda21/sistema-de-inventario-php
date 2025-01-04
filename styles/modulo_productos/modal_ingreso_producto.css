@@ -90,6 +90,17 @@
     background-color: #ddd;
 }
 
+.disabled-input {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #666;
+    background-color: #eee;
+    user-select: none;
+}
+
 /* Botón de guardar */
 .modal-submit {
     background-color: #007bff;

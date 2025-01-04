@@ -66,7 +66,8 @@ aside .sidebar-btn {
     gap: 10px;
     background-color: #384c63;
     color: white;
-    padding: 10px 15px;
+    margin-bottom: 10px;
+    padding: 8px 15px;
     border-radius: 8px;
     width: 88%;
     cursor: pointer;
@@ -87,6 +88,14 @@ aside .sidebar-btn p {
     margin: 2px;
 }
 
+aside .sidebar-btn span {
+    background-color: var(--azul);
+    /* color: #007BFF; */
+    padding: 5px 7px;
+    border-radius: 5px;
+    font-weight: 900;
+    display: inline-block;
+}
 /* Botones grandes */
 aside .sidebar-btn-large {
     padding: 25px 15px;
@@ -117,13 +126,17 @@ aside .sidebar-btn-large.entries:hover {
     /* Efecto hover azul */
 }
 
-.separator {
-    display: flex;
+aside .last {
+    margin-top: auto;
+}
+
+hr {
     flex-direction: column;
     width: 100%;
     height: 2px;
+    color: #384c63;
     background-color: #384c63;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 /* Estilo del área de contenido principal */
@@ -155,8 +168,13 @@ aside .sidebar-btn-large.entries:hover {
     width: 28px;
 }
 
+.icon svg {
+    width: 28px;
+    height: 28px;
+}
+
 .icon-big img {
-  width: 36px;
+    width: 36px;
 }
 
 .icon-inv {

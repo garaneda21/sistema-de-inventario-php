@@ -15,11 +15,12 @@ require_once "includes/input_escaner_vista.php";
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modulo_ventas/busqueda.css">
+    <link rel="stylesheet" href="styles/modulo_productos/modal_ingreso_producto.css">
     <link rel="stylesheet" href="styles/cuadricula_de_productos.css">
     <link rel="stylesheet" href="styles/barra_lateral_de_productos.css">
     <link rel="stylesheet" href="styles/tablas_venta_producto.css">
     <link rel="stylesheet" href="styles/mensaje_sin_productos.css">
-    <link rel="stylesheet" href="styles/modulo_ventas/modal_entradas.css">
+    <link rel="stylesheet" href="styles/notificacion.css">
 </head>
 
 <body>
@@ -96,35 +97,50 @@ require_once "includes/input_escaner_vista.php";
         </div>
     </div>
 
-    <?php
 
-    ?>
-
-
-    <!-- Modal -->
+            <!-- Modal -->
     <div id="productModal" class="modal">
         <div class="modal-content">
-            <!-- Título del modal -->
-            <div class="modal-title" id="modal-title">
-                PLÁTANO: Ingrese el lote del que venderá
+            <div class="modal-title">
+                Producto no encontrado, Ingrese datos para continuar...
             </div>
 
-            <!-- Botón de cerrar -->
+            <!-- Cerrar botón -->
             <button id="close-btn" class="close-btn">&times;</button>
 
-
             <!-- Cuerpo del modal -->
-            <div class="modal-body" id="modal-body">
+            <div class="modal-body">
+                <form id="product-form" action="includes/modulo_productos_pendientes/ingresar_producto_pendiente.php" method="post">
+                    <div class="modal-row">
+                        <label for="barcode" class="modal-label">Código de Barras:</label>
+                        <input type="text" id="barcode" name="codigo_de_barra" class="modal-input" placeholder="Usar escaner aquí...">
+                    </div>
+                    <div class="modal-row">
+                        <label for="product-name" class="modal-label">Nombre del Producto:</label>
+                        <input type="text" id="product-name" name="nombre_producto" class="modal-input" placeholder="Nombre del producto..." required>
+                    </div>
+                    <div class="modal-row">
+                        <label for="unit-measure" class="modal-label">Unidad de Medida:</label>
+                        <select id="unit-measure" name="unidad_de_medida" class="modal-input" required>
+                            <option value="">Seleccione una unidad de medida para el producto...</option>
+                            <option value="1">Unidad</option>
+                            <option value="2">Kilo</option>
+                        </select>
+                    </div>
 
+                    <input name="modulo_origen" type="text" value='<?=$_SERVER["PHP_SELF"]?>' hidden>
+
+                    <div class="modal-row">
+                        <button type="submit" class="modal-submit">Guardar Producto</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
 
-
     <!-- Formulario oculto para escaner -->
-        <form action="includes/input_escaner.php" method="get" id="formulario-escaner" hidden>
-
+    <form action="includes/input_escaner.php" method="get" id="formulario-escaner" hidden>
         <?php
         datos_producto_obtenido_por_escaner();
         ?>
@@ -133,11 +149,11 @@ require_once "includes/input_escaner_vista.php";
         <input name="modulo_origen" type="text" value='<?=$_SERVER["PHP_SELF"]?>'>
     </form>
 
-
+    <div id="notification-container"></div>
 
     <script src="js/agregar_a_tabla_venta.js"></script>
-    <script src="js/agregar_a_modal_venta.js"></script>
     <script src="js/input_escaner.js"></script>
+    <script src="js/modal_producto_pendiente.js"></script>
     <script src="js/notificacion.js"></script>
 
     <script>
@@ -157,11 +173,16 @@ require_once "includes/input_escaner_vista.php";
             const id_producto = producto_obtenido_por_escaner.dataset.id_producto;
             const nombre = producto_obtenido_por_escaner.dataset.nombre;
             const stock_actual = producto_obtenido_por_escaner.dataset.stock_actual;
+            const codigo_de_barra = producto_obtenido_por_escaner.dataset.codigo_de_barra;
             const unidad = producto_obtenido_por_escaner.dataset.unidad;
             const precio = producto_obtenido_por_escaner.dataset.precio;
 
-            agregar_a_tabla(id_producto, nombre, unidad, precio, stock_actual);
-            showNotification("Producto escaneado exitosamente")
+            if (!id_producto) {
+                mostrar_modal_producto_no_encontrado(codigo_de_barra);
+            } else {
+                agregar_a_tabla(id_producto, nombre, unidad, precio, stock_actual);
+                showNotification("Producto escaneado exitosamente")
+            }
         }
     </script>
 </body>
