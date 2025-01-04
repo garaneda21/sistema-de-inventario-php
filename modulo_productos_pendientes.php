@@ -69,10 +69,24 @@ require_once "includes/modulo_productos_pendientes/productos_pendientes.php"
         }
 
         .empty-message {
-            font-size: 30px;
-            color: gray;
+            display: flex;
+            flex-direction: column;
+            color: darkgray;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 28px;
+            align-items: center;
             text-align: center;
-            margin-top: 20px;
+            width: 60%;
+        }
+
+        .empty-message svg {
+            margin: 20px;
+            width: 50px;
+            height: 50px;
+            fill: darkgray;
         }
 
         @media (max-width: 600px) {

@@ -32,12 +32,6 @@ require_once "includes/input_escaner_vista.php";
         <!-- Área de contenido principal -->
         <main class="content">
 
-            <!-- Botón para abrir el modal -->
-            <button class="button-submit" onclick="mostrar_modal_producto_no_encontrado();">
-                <img class="icon" src="img/botones/add.png" alt="icono de añadir nuevo producto">
-                Añadir nuevo producto
-            </button>
-
             <!-- Formulario para búsqueda y paginación -->
             <form method="get" class="search-pagination-form">
                 <!-- Barra de búsqueda -->
