@@ -17,6 +17,24 @@ require_once "includes/dashboard/entradas_del_dia.php";
     <link rel="stylesheet" href="styles/pantalla_de_carga.css">
     <link rel="stylesheet" href="styles/pantalla_principal/dashboard.css">
     <style>
+        .mensaje-vacio {
+            display: flex;
+            flex-direction: column;
+            margin: 50px 0px;
+            color: gray;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .mensaje-vacio svg {
+            margin: 10px;
+            width: 50px;
+            height: 50px;
+            fill: darkgray;
+            align-self: center;
+        }
+    </style>
+    <style>
         /* Filas principales */
         .row {
             padding: 8px 0;
@@ -43,7 +61,9 @@ require_once "includes/dashboard/entradas_del_dia.php";
         .sub-row {
             display: flex;
             align-items: center;
-            padding: 4px;  border-bottom: 1px solid #156ACF; /* Esta es la línea separadora */
+            padding: 4px;
+            border-bottom: 1px solid #156ACF;
+            /* Esta es la línea separadora */
             font-size: 0.9rem;
         }
 
@@ -103,48 +123,22 @@ require_once "includes/dashboard/entradas_del_dia.php";
 
                 <div class="dashboard-row general-info">
                     <div class="info-card" style="grid-column: span 3;">
-                        Ventas realizadas en el día
+                        <h3>Ventas realizadas en el día</h3>
                     </div>
                     <div class="info-card" style="grid-column: span 3;">
-                        Entradas realizadas en el día
+                        <h3>Entradas realizadas en el día</h3>
 
                         <?php mostar_entradas_realizadas($entradas_realizadas_en_el_dia); ?>
 
-                        <!-- <section class="row">
-                            <h4>Elemento 1</h4>
-                            <ul class="sub-card">
-                                <li class="sub-row">
-                                    <span class="sub-element">Hola 1</span>
-                                    <span class="data">Dato</span>
-                                    <span class="data">Dato</span>
-                                </li>
-                                <li class="sub-row">
-                                    <span class="sub-element">Hola 2</span>
-                                    <span class="data">Dato</span>
-                                    <span class="data">Dato</span>
-                                </li>
-                            </ul>
-                        </section>
-                        <section class="row">
-                            <h4>Elemento 2</h4>
-                            <ul class="sub-card">
-                                <li class="sub-row">
-                                    <span class="sub-element">Hola 1</span>
-                                    <span class="data">Dato</span>
-                                    <span class="data">Dato</span>
-                                </li>
-                            </ul>
-                        </section> -->
-
                     </div>
                     <div class="info-card" style="grid-column: span 3;">
-                        Productos próximos a vencer
+                        <h3>Productos próximos a vencer</h3>
                     </div>
                     <div class="info-card" style="grid-column: span 3;">
-                        Productos con bajo stock
+                        <h3>Productos con bajo stock</h3>
                     </div>
                     <div class="info-card" style="grid-column: span 3;">
-                        Productos agotados
+                        <h3>Productos agotados</h3>
                     </div>
                 </div>
             </div>

@@ -81,3 +81,8 @@
   max-height: 400px;
   overflow-y: auto;
 }
+
+.info-card h3 {
+    margin: 0;
+    margin-bottom: 24px;
+}
