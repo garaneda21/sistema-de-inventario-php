@@ -21,6 +21,8 @@ try {
 
     $entradas_realizadas_en_el_dia = obtener_entradas_realizadas_en_el_dia($pdo);
 
+    // $ventas_realizadas_en_el_dia = obtener_ventas_realizadas_en_el_dia($pdo);
+
 } catch (PDOException $e) {
     die("Fallo al mostrar datos del panel principal: " . $e->getMessage());
 }

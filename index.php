@@ -124,21 +124,32 @@ require_once "includes/dashboard/entradas_del_dia.php";
                 <div class="dashboard-row general-info">
                     <div class="info-card" style="grid-column: span 3;">
                         <h3>Ventas realizadas en el día</h3>
+
+                        <?php mostrar_ventas_realizadas([]); ?>
                     </div>
                     <div class="info-card" style="grid-column: span 3;">
                         <h3>Entradas realizadas en el día</h3>
 
-                        <?php mostar_entradas_realizadas($entradas_realizadas_en_el_dia); ?>
+                        <?php mostrar_entradas_realizadas($entradas_realizadas_en_el_dia); ?>
 
                     </div>
                     <div class="info-card" style="grid-column: span 3;">
                         <h3>Productos próximos a vencer</h3>
+
+                        <?php mostar_productos_por_vencer([]); ?>
+
                     </div>
                     <div class="info-card" style="grid-column: span 3;">
                         <h3>Productos con bajo stock</h3>
+
+                        <?php mostar_productos_con_bajo_stock([]); ?>
+
                     </div>
                     <div class="info-card" style="grid-column: span 3;">
                         <h3>Productos agotados</h3>
+
+                        <?php mostar_productos_agotados([]); ?>
+
                     </div>
                 </div>
             </div>
