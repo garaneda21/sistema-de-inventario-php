@@ -13,9 +13,9 @@ try {
     $salidas_del_dia = $datos_salida["salidas_del_dia"];
     $ingresos_del_dia = $datos_salida["ingresos_del_dia"];
 
-    $productos_en_bajo_stock = obtener_productos_en_bajo_stock($pdo);
+    // $productos_en_bajo_stock = obtener_productos_en_bajo_stock($pdo);
 
-    $productos_agotados = obtener_productos_agotados($pdo);
+    // $productos_agotados = obtener_productos_agotados($pdo);
 
     $lotes_por_vencer = obtener_lotes_por_vencer($pdo);
 

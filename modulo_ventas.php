@@ -14,7 +14,7 @@ require_once "includes/input_escaner_vista.php";
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/layout.css">
-    <link rel="stylesheet" href="styles/modulo_ventas/busqueda.css">
+    <link rel="stylesheet" href="styles/busqueda.css">
     <link rel="stylesheet" href="styles/modulo_productos/modal_ingreso_producto.css">
     <link rel="stylesheet" href="styles/cuadricula_de_productos.css">
     <link rel="stylesheet" href="styles/barra_lateral_de_productos.css">
@@ -32,23 +32,8 @@ require_once "includes/input_escaner_vista.php";
         <!-- Área de contenido principal -->
         <main class="content">
 
-            <!-- Formulario para búsqueda y paginación -->
-            <form method="get" class="search-pagination-form">
-                <!-- Barra de búsqueda -->
-                <div class="search-container">
-                    <input type="text" name="busqueda" placeholder="Buscar producto..." class="search-input" value="<?php echo isset($_GET['busqueda']) ? htmlspecialchars($_GET['busqueda']) : ''; ?>">
-                    <button type="submit" class="search-button">Buscar</button>
-                </div>
-
-                
-                <div class="pagination-container">
-                    <button type="submit" name="pagina" value="1" class="pagination-button">1</button>
-                    <button type="submit" name="pagina" value="2" class="pagination-button">2</button>
-                    <button type="submit" name="pagina" value="3" class="pagination-button">3</button>
-                    
-                </div>
-            </form>
-
+            <?php require "elementos_ui/busqueda.php" ?>
+         
 
             <div class="product-grid">
 
@@ -98,7 +83,7 @@ require_once "includes/input_escaner_vista.php";
     </div>
 
 
-            <!-- Modal -->
+    <!-- Modal -->
     <div id="productModal" class="modal">
         <div class="modal-content">
             <div class="modal-title">
@@ -128,7 +113,7 @@ require_once "includes/input_escaner_vista.php";
                         </select>
                     </div>
 
-                    <input name="modulo_origen" type="text" value='<?=$_SERVER["PHP_SELF"]?>' hidden>
+                    <input name="modulo_origen" type="text" value='<?= $_SERVER["PHP_SELF"] ?>' hidden>
 
                     <div class="modal-row">
                         <button type="submit" class="modal-submit">Guardar Producto</button>
@@ -146,7 +131,7 @@ require_once "includes/input_escaner_vista.php";
         ?>
 
         <input id="input-escaner" name="input_escaner" type="text">
-        <input name="modulo_origen" type="text" value='<?=$_SERVER["PHP_SELF"]?>'>
+        <input name="modulo_origen" type="text" value='<?= $_SERVER["PHP_SELF"] ?>'>
     </form>
 
     <div id="notification-container"></div>

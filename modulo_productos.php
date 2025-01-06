@@ -13,7 +13,7 @@ require_once "includes/modulo_productos/tabla_productos.php";
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/tablas.css">
-    <link rel="stylesheet" href="styles/modulo_ventas/busqueda.css">
+    <link rel="stylesheet" href="styles/busqueda.css">
     <link rel="stylesheet" href="styles/modulo_productos/modal_ingreso_producto.css">
     <link rel="stylesheet" href="styles/modulo_productos/modal_de_exito.css">
     <link rel="stylesheet" href="styles/notificacion.css">
@@ -30,21 +30,8 @@ require_once "includes/modulo_productos/tabla_productos.php";
         <!-- Área de contenido principal -->
         <main class="content">
 
-            <form method="get" class="search-pagination-form">
-                <!-- Barra de búsqueda -->
-                <div class="search-container">
-                    <input type="text" name="busqueda" placeholder="Buscar producto..." class="search-input" value="<?php echo isset($_GET['busqueda']) ? htmlspecialchars($_GET['busqueda']) : ''; ?>">
-                    <button type="submit" class="search-button">Buscar</button>
-                </div>
-
-
-                <!-- <div class="pagination-container">
-                    <button type="submit" name="pagina" value="1" class="pagination-button">1</button>
-                    <button type="submit" name="pagina" value="2" class="pagination-button">2</button>
-                    <button type="submit" name="pagina" value="3" class="pagination-button">3</button>
-                    
-                </div> -->
-            </form>
+            <?php require_once "elementos_ui/busqueda.php" ?>
+             
 
             <!-- Botón para abrir el modal -->
             <button id="open-modal-btn" class="button-submit">
