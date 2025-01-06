@@ -22,6 +22,16 @@
     user-select: none;
 }
 
+.product-item.low-stock {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.product-item.no-stock {
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+}
+
 .product-item:hover {
     transform: translateY(-8px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
@@ -65,6 +75,14 @@
     z-index: 3;
 }
 
+.stock.low-stock {
+    color: #856404;
+}
+
+.stock.no-stock {
+    color: #dc3545;
+}
+
 .barcode {
     font-size: 16px;
     margin-bottom: 8px;
@@ -83,15 +101,34 @@
 }
 
 .product-entradas {
-  background-color: #007bff; /* Fondo azul */
-  color: white; /* Texto blanco */
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 10px; /* Espacio encima */
+    background-color: #007bff;
+    /* Fondo azul */
+    color: white;
+    /* Texto blanco */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    /* Espacio encima */
 }
 
-
-
+.expiration-info {
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    margin-top: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffe8cc; /* Naranja suave */
+    color: #c05621; /* Texto marrón oscuro */
+    border: 1px solid #ffc490; /* Naranja pálido */
+}
+/* Tarjetita con estado "Vencido" */
+.expiration-info.expired {
+    background-color: #f4cccc; /* Rojo pálido */
+    color: #a61b1b; /* Rojo oscuro */
+    border-color: #e0a6a6; /* Borde rojo claro */
+}

@@ -7,6 +7,10 @@ CREATE TABLE unidad_de_medida (
     PRIMARY KEY (id_unidad)
 );
 
+INSERT INTO unidad_de_medida (nombre_unidad) VALUES
+('Unidad'),
+('Kilo');
+
 -- CREATE TABLE categoria (
 --     id_categoria INT UNSIGNED NOT NULL AUTO_INCREMENT,
 --     nombre_categoria VARCHAR(20) NOT NULL,
@@ -18,7 +22,6 @@ CREATE TABLE producto (
     nombre_producto VARCHAR(250) NOT NULL,
     total_vendidos BIGINT UNSIGNED DEFAULT 0, 
     stock_minimo INT UNSIGNED DEFAULT 10,
-    stock_actual DECIMAL(20,2) NOT NULL DEFAULT 0,
     codigo_de_barra VARCHAR(20),
     tiempo_alerta_vencimiento INT UNSIGNED DEFAULT 15,
     activo CHAR(1) NOT NULL DEFAULT 1,
@@ -81,6 +84,11 @@ CREATE TABLE motivo_salida (
     nombre_motivo VARCHAR(30) NOT NULL,
     PRIMARY KEY (id_motivo)
 );
+
+INSERT INTO motivo_salida (nombre_motivo) VALUES
+('Venta'),
+('Vencido'),
+('Daño');
 
 -- DECLARACIÓN DE FK'S
 

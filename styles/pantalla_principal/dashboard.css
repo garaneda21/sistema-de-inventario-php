@@ -77,4 +77,12 @@
   font-size: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
+  height: auto;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.info-card h3 {
+    margin: 0;
+    margin-bottom: 24px;
 }

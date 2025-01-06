@@ -58,7 +58,7 @@ try {
         }
     }
 
-    actualizar_cantidad_de_productos($pdo, $id_producto, $id_salida, $salida_total);
+    actualizar_total_vendidos($pdo, $id_producto, $id_salida, $salida_total);
 
     $pdo = null;
     $stmt = null;

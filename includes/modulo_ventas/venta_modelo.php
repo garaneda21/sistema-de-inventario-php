@@ -61,7 +61,7 @@ function registrar_salida_de_producto(
     $stmt->execute();
 }
 
-function actualizar_cantidad_de_productos(object $pdo, int $id_producto, int|float $salida_total)
+function actualizar_total_vendidos(object $pdo, int $id_producto, int|float $salida_total)
 {
     $consulta = "SELECT sum(stock_actual_entrada) as stock_restante FROM entrada_producto WHERE id_producto = :id_producto AND stock_actual_entrada > 0;";
 
@@ -73,12 +73,11 @@ function actualizar_cantidad_de_productos(object $pdo, int $id_producto, int|flo
     $stock_restante = $resul[0]["stock_restante"];
 
     $consulta = "UPDATE producto 
-        SET stock_actual = :stock_restante, total_vendidos = total_vendidos + :salida_total
+        SET total_vendidos = total_vendidos + :salida_total
         WHERE id_producto = :id_producto;
     ";
     $stmt = $pdo->prepare($consulta);
 
-    $stmt->bindParam(":stock_restante", $stock_restante);
     $stmt->bindParam(":salida_total", $salida_total);
     $stmt->bindParam(":id_producto", $id_producto);
 
