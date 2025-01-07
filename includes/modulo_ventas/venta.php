@@ -56,7 +56,7 @@ try {
         die();
     }
 
-    /* $id_salida = (int) registrar_salida($pdo);
+    $id_salida = (int) registrar_salida($pdo);
 
     foreach ($productos as $producto) {
 
@@ -97,7 +97,7 @@ try {
         }
     }
 
-    actualizar_total_vendidos($pdo, $id_producto, $id_salida, $salida_total); */
+    actualizar_total_vendidos($pdo, $id_producto, $id_salida, $salida_total);
 
     $pdo = null;
     $stmt = null;

@@ -23,58 +23,7 @@ require_once "includes/modulo_ventas/venta_vista.php";
     <link rel="stylesheet" href="styles/tablas_venta_producto.css">
     <link rel="stylesheet" href="styles/mensaje_sin_productos.css">
     <link rel="stylesheet" href="styles/notificacion.css">
-    <style>
-        /* Modal */
-        .error-modal {
-            display: flex;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Modal content */
-        .error-modal-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            position: relative;
-            text-align: center;
-        }
-
-        .error-modal-content h2 {
-            margin: 0;
-        }
-
-        /* Tarjetas de error */
-        .error-card {
-            background-color: #f8d7da;
-            border: 1px solid #f5c6cb;
-            color: #721c24;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            text-align: left;
-        }
-
-        .error-card h3 {
-            margin: 0;
-            font-size: 18px;
-        }
-
-        .error-card p {
-            margin: 5px 0 0;
-            font-size: 14px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/modal_errores.css">
 </head>
 
 <body>

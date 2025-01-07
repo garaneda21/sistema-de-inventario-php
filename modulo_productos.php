@@ -1,5 +1,6 @@
 <?php
 require_once "includes/modulo_productos/tabla_productos.php";
+require_once "includes/modulo_productos/ingresar_producto_vista.php";
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,7 @@ require_once "includes/modulo_productos/tabla_productos.php";
     <link rel="stylesheet" href="styles/modulo_productos/modal_ingreso_producto.css">
     <link rel="stylesheet" href="styles/modulo_productos/modal_de_exito.css">
     <link rel="stylesheet" href="styles/notificacion.css">
-    <!-- <link rel="stylesheet" href="styles/formulario.css"> -->
+    <link rel="stylesheet" href="styles/modal_errores.css">
 </head>
 
 <body>
@@ -112,6 +113,7 @@ require_once "includes/modulo_productos/tabla_productos.php";
 
     </div>
 
+    
 
     <script src="js/notificacion.js"></script>
     <script src="js/modulo_productos/modal.js"></script>
