@@ -6,7 +6,6 @@ function obtener_producto(object $pdo, string $codigo_de_barra) {
     $consulta = "SELECT
 	        p.id_producto, 
 	        p.nombre_producto,
-            p.stock_actual,
             p.requiere_fecha_vencimiento,
             u.nombre_unidad,
             pr.precio
@@ -20,5 +19,19 @@ function obtener_producto(object $pdo, string $codigo_de_barra) {
     $stmt->execute();
 
     $producto_obtenido_por_escaner = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $producto_obtenido_por_escaner["stock_actual"] = obtener_stock($pdo, (int) $producto_obtenido_por_escaner["id_producto"]);
+
     return $producto_obtenido_por_escaner;
+}
+
+function obtener_stock(object $pdo, int $id_producto) {
+    $consulta = "SELECT sum(stock_actual_entrada) as stock_actual FROM entrada_producto WHERE id_producto = :id_producto AND stock_actual_entrada > 0;";
+    $stmt = $pdo->prepare($consulta);
+    $stmt->bindParam(":id_producto", $id_producto);
+    $stmt->execute();
+
+    $resul = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $resul["stock_actual"] ?? 0;
 }

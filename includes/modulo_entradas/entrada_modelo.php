@@ -38,17 +38,4 @@ function registrar_entrada_de_producto(
     $stmt->bindParam(":fecha_vencimiento", $vencimiento);
 
     $stmt->execute();
-
-    // Actualizar Cantidad de los productos
-
-    $consulta = "UPDATE producto 
-        SET stock_actual = stock_actual + :cantidad_entrada
-        WHERE id_producto = :id_producto;
-    ";
-    $stmt = $pdo->prepare($consulta);
-
-    $stmt->bindParam(":cantidad_entrada", $cantidad);
-    $stmt->bindParam(":id_producto", $id_producto);
-
-    $stmt->execute();
 }

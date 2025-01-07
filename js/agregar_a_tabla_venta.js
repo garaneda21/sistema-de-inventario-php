@@ -6,49 +6,51 @@ const agregar_a_tabla = (id, nombre, unidad, precio, stock_actual, por_session =
     } 
     
     const tabla = document.getElementById("tabla-productos")
-
+    
     const nuevaFila = document.createElement("tr");
     nuevaFila.setAttribute("id", id);
-
+    
     nuevaFila.innerHTML = `
-        <td>
-            <input type="hidden" name="productos[${id}][id_producto]" value="${id}" required>
-            ${nombre}
-        </td>
+    <td>
+    <input type="hidden" name="productos[${id}][id_producto]" value="${id}" required>
+    <input type="hidden" name="productos[${id}][nombre_producto]" value="${nombre}" required>
+    ${nombre}
+    </td>
     `
-
+    
     if (unidad !== "Unidad") {
         nuevaFila.innerHTML += `
-            <td>
-                <input class="table-input" type="text" name="productos[${id}][cantidad]" value="1" required> 
-            </td>
+        <td>
+        <input class="table-input" type="text" name="productos[${id}][cantidad]" value="1" required> 
+        </td>
         `
     } else {
         nuevaFila.innerHTML += `
-            <td>
-                <input class="table-input" type="number" min=1 max=${stock_actual} name="productos[${id}][cantidad]" value="1" required>
-            </td>
+        <td>
+        <input type="hidden" name="productos[${id}][stock_actual]" value="${stock_actual}" required>
+        <input class="table-input" type="number" min=1 max=${stock_actual} name="productos[${id}][cantidad]" value="1" required>
+        </td>
         `
     }
-
+    
     nuevaFila.innerHTML += `
-        <td>
-            ${unidad}
-        </td>
-        <td>
-            <input type="hidden" name="productos[${id}][precio]" value="${precio}">
-            $${precio}
-        </td>
-        <td>
-            <button type="button" class="button-remove-row" onclick="quitarFila(this, ${id})">&times;</button>
-        </td>
+    <td>
+    ${unidad}
+    </td>
+    <td>
+    <input type="hidden" name="productos[${id}][precio]" value="${precio}">
+    $${precio}
+    </td>
+    <td>
+    <button type="button" class="button-remove-row" onclick="quitarFila(this, ${id})">&times;</button>
+    </td>
     `
-
-
+    
+    
     tabla.appendChild(nuevaFila);
-
+    
     verificar_tabla_vacia();
-
+    
     // -------------------------------------------------
     // ----- Guardar datos en la sesión -----
     // -------------------------------------------------
@@ -56,10 +58,10 @@ const agregar_a_tabla = (id, nombre, unidad, precio, stock_actual, por_session =
     if (por_session) {
         return;
     }
-
+    
     // Recuperar los datos actuales de sessionStorage
     let productos = JSON.parse(sessionStorage.getItem('productos_a_vender')) || {};
-
+    
     // Agregar el nuevo producto
     productos[id] = ({ id, nombre, unidad, precio, stock_actual });
 

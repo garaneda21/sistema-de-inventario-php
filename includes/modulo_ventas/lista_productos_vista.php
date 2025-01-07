@@ -16,13 +16,14 @@ function insertar_productos($productos)
             'costo'             => $costo,
         ] = $producto;
 
+
         if($nombre_unidad === "Unidad") {
             $stock_actual = (int) $stock_actual;
         }
 
         if ($stock_actual === 0) {
             echo "
-                <div class='product-item no-stock' onclick=\"agregar_a_tabla($id_producto, '$nombre_producto', '$nombre_unidad', $precio, $stock_actual);\">
+                <div class='product-item no-stock' onclick=\"agregar_a_tabla($id_producto, '$nombre_producto', '$nombre_unidad', $precio, '$stock_actual');\">
                     <div class='product-name'> $nombre_producto</div>
                     <div class='product-price'>$$precio</div>
                     <span class='stock no-stock'>Stock: Agotado</span>
@@ -30,7 +31,7 @@ function insertar_productos($productos)
             ";
         } else if ($stock_minimo > $stock_actual) {
             echo "
-                <div class='product-item' onclick=\"agregar_a_tabla($id_producto, '$nombre_producto', '$nombre_unidad', $precio, $stock_actual);\">
+                <div class='product-item' onclick=\"agregar_a_tabla($id_producto, '$nombre_producto', '$nombre_unidad', $precio, '$stock_actual');\">
                     <div class='product-name'> $nombre_producto</div>
                     <div class='product-price'>$$precio</div>
                     <span class='stock low-stock'>Stock: $stock_actual $nombre_unidad</span>
@@ -38,7 +39,7 @@ function insertar_productos($productos)
             ";
         } else {
             echo "
-                <div class='product-item' onclick=\"agregar_a_tabla($id_producto, '$nombre_producto', '$nombre_unidad', $precio, $stock_actual);\">
+                <div class='product-item' onclick=\"agregar_a_tabla($id_producto, '$nombre_producto', '$nombre_unidad', $precio, '$stock_actual');\">
                     <div class='product-name'> $nombre_producto</div>
                     <div class='product-price'>$$precio</div>
                     <span class='stock'>Stock: $stock_actual $nombre_unidad</span>

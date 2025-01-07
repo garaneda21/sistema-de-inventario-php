@@ -7,17 +7,56 @@ $productos = $_POST["productos"];
 try {
     require_once "../db.php";
     require_once "venta_modelo.php";
+    require_once "venta_contr.php";
 
-    /* Comprobar Errores
-        - Inputs Vacíos
-        - Strings más largos que lo permitido
-        - Input Incorrecto (string en campo numérico)
-        - Producto que ya existe    
-        - tipos float tienen que ser de dos decimales, no mas
-        - Números Negativos
-    */
+    // MANEJAR ERRORES
+    $errores = [];
 
-    $id_salida = (int) registrar_salida($pdo);
+    foreach ($productos as $producto) {
+        [
+            'id_producto' => $id_producto,
+            'nombre_producto' => $nombre_producto,
+            'cantidad' => $cantidad,
+            'stock_actual' => $stock_actual
+        ] = $producto;
+
+        $nombre_producto = strtoupper($nombre_producto);
+
+        if (!es_cantidad_mayor_a_cero($cantidad)) {
+            $errores["cantidad_mayor_a_cero"] = [
+                "nombre_producto" => $nombre_producto,
+                "mensaje" => "La cantidad de venta ingresada es menor cero o negativa: ($cantidad)",
+            ];
+        }
+        if (es_cantidad_mayor_a_stock_actual($cantidad, $stock_actual)) {
+            $errores["cantidad_mayor_a_stock_actual"] = [
+                "nombre_producto" => $nombre_producto,
+                "mensaje" => "La cantidad de venta ingresada es mayor a la disponible en stock: (ingresado: $cantidad, stock_actual: $stock_actual)",
+            ];
+        }
+        if (!es_valor_numerico($cantidad)) {
+            $errores["no_es_numerico"] = [
+                "nombre_producto" => $nombre_producto,
+                "mensaje" => "La cantidad de venta ingresada debe ser un número",
+            ];
+        }
+        if (!es_de_solo_dos_decimales($cantidad)) {
+            $errores["es_de_solo_dos_decimales"] = [
+                "nombre_producto" => $nombre_producto,
+                "mensaje" => "La cantidad de venta ingresada debe tener más de dos decimales",
+            ];
+        }
+    }
+
+    require_once "../config_session.php";
+
+    if($errores) {
+        $_SESSION["errores_en_cantidad_ingresada"] = $errores;
+        header("Location: ../../modulo_ventas.php");
+        die();
+    }
+
+    /* $id_salida = (int) registrar_salida($pdo);
 
     foreach ($productos as $producto) {
 
@@ -58,7 +97,7 @@ try {
         }
     }
 
-    actualizar_total_vendidos($pdo, $id_producto, $id_salida, $salida_total);
+    actualizar_total_vendidos($pdo, $id_producto, $id_salida, $salida_total); */
 
     $pdo = null;
     $stmt = null;
