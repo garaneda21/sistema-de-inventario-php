@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS inventario_carolina;
-USE inventario_carolina;
+CREATE DATABASE IF NOT EXISTS inventario;
+USE inventario;
 
 CREATE TABLE unidad_de_medida (
 	id_unidad INT UNSIGNED NOT NULL AUTO_INCREMENT,
