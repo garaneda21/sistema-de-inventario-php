@@ -1,4 +1,4 @@
-# inventario-ABMODEL
+# sistema de inventario php
 
 Sistema de inventario para un negocio de barrio.
 
