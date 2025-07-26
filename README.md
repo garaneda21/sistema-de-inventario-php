@@ -1,6 +1,8 @@
-# sistema de inventario php
+# Sistema de Inventario
 
 Sistema de inventario para un negocio de barrio.
+
+<img alt="Screenshot 2025-07-25 at 20-26-33 Sistema de Inventario" src="https://github.com/user-attachments/assets/6b489909-5127-44c3-8872-354baff70b7f" />
 
 ## Funciones
 
@@ -17,7 +19,7 @@ Sistema de inventario para un negocio de barrio.
 
 ## Instalación
 
-- Este sistema está diseñado para ser utilizado de forma local.
+- Este sistema está diseñado para ser utilizado de forma local, pero la base de datos puede existir de forma remota.
 - Se debe instalar las herramientas necesarias para correr PHP, como XAMPP o algún stack tecnológico como LAMP.
 - Se debe instalar [Composer](https://getcomposer.org/) para instalar las dependencias del proyecto.
 - Se puede utilizar como base de datos MySQL o MariaDB.
