@@ -2,9 +2,9 @@
 // Conexión a Base de Datos
 
 $host = '127.0.0.1'; // se puede cambiar por localhost
-$dbname = 'inventario_carolina';
+$dbname = 'inventario';
 $dbusername = 'root';
-$dbpassword = '1234';
+$dbpassword = '';
 
 try {
     // crear la conexión a la base de datos usando PDO, pasando los parámetros
